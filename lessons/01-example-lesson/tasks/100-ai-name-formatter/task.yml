@@ -1,9 +1,9 @@
 # Task Configuration
-title: 'RAG & Vector Store - Knowledge Base for AI Agents'
+title: 'AI Name Formatter - Creative Nicknames'
 position: 100
-category: 'Advanced'
+category: 'Day 1 Challenges'
 preparation: false
-estimated_time_in_minutes: 30
+estimated_time_in_minutes: 20
 always_unlocked: false
 
 # Note: Markdown content is loaded from separate files:

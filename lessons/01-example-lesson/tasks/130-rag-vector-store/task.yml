@@ -1,9 +1,9 @@
 # Task Configuration
-title: 'Error Handling - Error Handling and Logging'
-position: 80
+title: 'RAG & Vector Store - Knowledge Base for AI Agents'
+position: 130
 category: 'Advanced'
 preparation: false
-estimated_time_in_minutes: 20
+estimated_time_in_minutes: 30
 always_unlocked: false
 
 # Note: Markdown content is loaded from separate files:

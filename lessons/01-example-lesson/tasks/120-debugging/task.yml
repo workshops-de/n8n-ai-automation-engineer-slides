@@ -1,9 +1,9 @@
 # Task Configuration
-title: 'Challange: AI Welcome Email Personalizer'
-position: 110
-category: 'Day 1 Challenges'
+title: 'Debugging - Analyzing Failed Executions'
+position: 120
+category: 'Advanced'
 preparation: false
-estimated_time_in_minutes: 25
+estimated_time_in_minutes: 10
 always_unlocked: false
 
 # Note: Markdown content is loaded from separate files:
