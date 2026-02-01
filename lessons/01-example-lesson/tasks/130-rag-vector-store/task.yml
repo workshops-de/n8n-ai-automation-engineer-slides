@@ -1,6 +1,6 @@
 # Task Configuration
-title: 'RAG & Vector Store - Knowledge Base for AI Agents'
-position: 130
+title: 'RAG with Pinecone - D&D Game Master'
+position: 140
 category: 'Advanced'
 preparation: false
 estimated_time_in_minutes: 30

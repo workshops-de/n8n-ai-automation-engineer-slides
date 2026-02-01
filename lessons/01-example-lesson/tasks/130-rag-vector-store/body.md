@@ -1,4 +1,4 @@
-# RAG & Vector Store - Knowledge Base for AI Agents
+# RAG with Pinecone - D&D Game Master
 
 ## What is RAG (Retrieval-Augmented Generation)?
 
