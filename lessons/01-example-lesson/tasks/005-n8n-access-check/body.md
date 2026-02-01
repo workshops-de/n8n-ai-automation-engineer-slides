@@ -1,18 +1,14 @@
 # Preparation: N8N Access Check
 
-## Before the Workshop
-
-This preparation task should be completed **3-5 days before the workshop** to ensure everything is ready for a smooth start.
-
 ## Task
 
-Verify that you have access to our N8N learning environment.
+Verify that you have access to our N8N learning environment. We send it 3-5 days before the workshop starts.
 
 ### Step-by-Step Guide
 
 1. **Check Your Email**
    - Look for an invitation email from workshops.de
-   - Subject might include "N8N Workshop Access" or similar
+   - Subject might include "You have been invited to n8n" or similar
    - Check your spam folder if you don't see it in your inbox
 
 2. **Access the N8N Instance**
@@ -45,9 +41,3 @@ If you encounter any issues:
 - Contact the workshop organizers
 - Bring it up on the first day of the workshop
 - We're here to help!
-
-## Learning Objectives
-
-✓ Ensure access to the learning environment
-✓ Get familiar with the N8N interface
-✓ Be ready for hands-on exercises on day 1
