@@ -62,8 +62,8 @@ Use N8N's debugging features to analyze and fix failed executions.
 
 ## Learning Objectives
 
-✓ Navigate and filter the executions list
-✓ Interpret error messages
-✓ Analyze data flow in workflows
-✓ Understand different rerun options
-✓ Perform systematic debugging
+- ✓ Navigate and filter the executions list
+- ✓ Interpret error messages
+- ✓ Analyze data flow in workflows
+- ✓ Understand different rerun options
+- ✓ Perform systematic debugging

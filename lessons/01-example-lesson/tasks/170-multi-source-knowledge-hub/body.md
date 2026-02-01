@@ -216,12 +216,12 @@ Test with different queries:
 
 ## Learning Objectives
 
-✓ Multi-format data ingestion (PDF, Web, CSV)
-✓ Content preprocessing and normalization
-✓ Unified Vector Storage
-✓ Source tracking and metadata management
-✓ RAG with multi-source attribution
-✓ Create complex data pipelines
+- ✓ Multi-format data ingestion (PDF, Web, CSV)
+- ✓ Content preprocessing and normalization
+- ✓ Unified Vector Storage
+- ✓ Source tracking and metadata management
+- ✓ RAG with multi-source attribution
+- ✓ Create complex data pipelines
 
 ## Success Criteria
 

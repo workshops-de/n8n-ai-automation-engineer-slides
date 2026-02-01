@@ -100,11 +100,11 @@ Example POST Body:
 
 ## Learning Objectives
 
-✓ Implement AI summarization
-✓ Use JSON structures for consistent outputs
-✓ Field mapping between different data sources
-✓ Understand sentiment analysis
-✓ Use Google Sheets as a database
+- ✓ Implement AI summarization
+- ✓ Use JSON structures for consistent outputs
+- ✓ Field mapping between different data sources
+- ✓ Understand sentiment analysis
+- ✓ Use Google Sheets as a database
 
 ## Success Criteria
 

@@ -122,11 +122,11 @@ If not already done:
 
 ## Learning Objectives
 
-✓ Process binary files in N8N
-✓ Handle different file formats (PDF, CSV, JSON)
-✓ Use AI for document summarization
-✓ Integrate Telegram for notifications
-✓ Automate file download and processing
+- ✓ Process binary files in N8N
+- ✓ Handle different file formats (PDF, CSV, JSON)
+- ✓ Use AI for document summarization
+- ✓ Integrate Telegram for notifications
+- ✓ Automate file download and processing
 
 ## Success Criteria
 

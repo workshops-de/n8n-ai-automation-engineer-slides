@@ -82,8 +82,8 @@ Create an AI Assistant with 3 tools: Weather Lookup, Google Sheets, and HTTP Req
 
 ## Learning Objectives
 
-✓ Connect multiple tools to an AI Agent
-✓ Write effective tool descriptions
-✓ Understand automatic tool selection
-✓ Integrate different API types
-✓ Connect Google Sheets with N8N
+- ✓ Connect multiple tools to an AI Agent
+- ✓ Write effective tool descriptions
+- ✓ Understand automatic tool selection
+- ✓ Integrate different API types
+- ✓ Connect Google Sheets with N8N

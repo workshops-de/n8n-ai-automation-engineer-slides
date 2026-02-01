@@ -135,10 +135,10 @@ We:
 
 ## Learning Objectives
 
-✓ Understand RAG architecture
-✓ Set up Vector Stores (Pinecone)
-✓ Vectorize documents
-✓ Create embeddings
-✓ Implement semantic search
-✓ Combine Long-Term Memory (Vector Store) with Short-Term Memory (Chat Memory)
-✓ Connect AI Agents to knowledge bases
+- ✓ Understand RAG architecture
+- ✓ Set up Vector Stores (Pinecone)
+- ✓ Vectorize documents
+- ✓ Create embeddings
+- ✓ Implement semantic search
+- ✓ Combine Long-Term Memory (Vector Store) with Short-Term Memory (Chat Memory)
+- ✓ Connect AI Agents to knowledge bases

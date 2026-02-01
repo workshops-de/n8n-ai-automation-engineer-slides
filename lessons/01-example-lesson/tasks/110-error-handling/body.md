@@ -73,8 +73,8 @@ Consider:
 
 ## Learning Objectives
 
-✓ Create Error Trigger workflows
-✓ Configure Workflow Settings for Error Handling
-✓ Extract and log error information
-✓ Implement different notification methods
-✓ Handle tool errors in AI Agents
+- ✓ Create Error Trigger workflows
+- ✓ Configure Workflow Settings for Error Handling
+- ✓ Extract and log error information
+- ✓ Implement different notification methods
+- ✓ Handle tool errors in AI Agents

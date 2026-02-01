@@ -117,11 +117,11 @@ Posted: FALSE
 
 ## Learning Objectives
 
-✓ Implement scheduled workflows with Cron
-✓ Use AI for content generation
-✓ Dynamic posting based on data
-✓ Platform-specific content rules
-✓ Google Sheets as Content Management System
+- ✓ Implement scheduled workflows with Cron
+- ✓ Use AI for content generation
+- ✓ Dynamic posting based on data
+- ✓ Platform-specific content rules
+- ✓ Google Sheets as Content Management System
 
 ## Success Criteria
 

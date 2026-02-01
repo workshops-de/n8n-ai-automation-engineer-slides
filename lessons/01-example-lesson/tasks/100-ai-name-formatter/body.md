@@ -91,11 +91,11 @@ return items;
 
 ## Learning Objectives
 
-✓ Use Set Node for static data lists
-✓ Use AI for creative text generation
-✓ Implement loops over multiple items
-✓ Use Code Nodes for data formatting
-✓ Process JSON data structures
+- ✓ Use Set Node for static data lists
+- ✓ Use AI for creative text generation
+- ✓ Implement loops over multiple items
+- ✓ Use Code Nodes for data formatting
+- ✓ Process JSON data structures
 
 ## Success Criteria
 

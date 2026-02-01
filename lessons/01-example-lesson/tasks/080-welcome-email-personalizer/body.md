@@ -73,10 +73,10 @@ Use a tool like Postman or curl to send test data:
 
 ## Learning Objectives
 
-✓ Use webhooks for external integrations
-✓ Use AI for personalized content generation
-✓ Pass dynamic data between nodes
-✓ Implement email automations
+- ✓ Use webhooks for external integrations
+- ✓ Use AI for personalized content generation
+- ✓ Pass dynamic data between nodes
+- ✓ Implement email automations
 
 ## Success Criteria
 

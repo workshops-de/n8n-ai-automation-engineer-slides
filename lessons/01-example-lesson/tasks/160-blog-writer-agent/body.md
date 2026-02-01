@@ -130,11 +130,11 @@ return [{ json: { content: formattedPost, title: $('RSS Feed Read').item.json.ti
 
 ## Learning Objectives
 
-✓ Use RSS Feeds as data sources
-✓ AI for long-form content creation
-✓ Implement Markdown formatting
-✓ Google Docs/Drive Integration
-✓ Create automated content pipelines
+- ✓ Use RSS Feeds as data sources
+- ✓ AI for long-form content creation
+- ✓ Implement Markdown formatting
+- ✓ Google Docs/Drive Integration
+- ✓ Create automated content pipelines
 
 ## Success Criteria
 
