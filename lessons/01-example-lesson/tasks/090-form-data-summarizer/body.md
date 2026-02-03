@@ -86,91 +86,7 @@ Füge im n8n Form Trigger folgende Felder hinzu:
   Sei objektiv, fair und konstruktiv.
   ```
 
-### 6. Tools für den AI Agent erstellen
-
-Der AI Agent soll ein Tool haben, um die Bewertung zu speichern:
-
-- **Tool Name**: `save_evaluation`
-- **Tool Description**: 
-  ```
-  Speichert die Bewerbungsbewertung mit folgenden Parametern:
-  - score: Gesamtbewertung von 1-10 (10 = exzellent)
-  - strengths: Liste der Stärken (Array)
-  - weaknesses: Liste der Schwächen (Array)
-  - recommendation: Empfehlung (EINLADEN, ABLEHNEN, WARTELISTE)
-  - summary: Kurze Zusammenfassung (2-3 Sätze)
-  - experience_match: Passt die Erfahrung zur Position? (1-10)
-  - motivation_quality: Qualität des Anschreibens (1-10)
-  - skills_match: Passung der Skills (1-10)
-  ```
-
-- **Tool Parameters** (JSON Schema):
-  ```json
-  {
-    "type": "object",
-    "properties": {
-      "score": {
-        "type": "number",
-        "description": "Gesamtbewertung 1-10"
-      },
-      "strengths": {
-        "type": "array",
-        "items": { "type": "string" },
-        "description": "Liste der Stärken"
-      },
-      "weaknesses": {
-        "type": "array",
-        "items": { "type": "string" },
-        "description": "Liste der Schwächen"
-      },
-      "recommendation": {
-        "type": "string",
-        "enum": ["EINLADEN", "ABLEHNEN", "WARTELISTE"],
-        "description": "Empfehlung"
-      },
-      "summary": {
-        "type": "string",
-        "description": "Zusammenfassung 2-3 Sätze"
-      },
-      "experience_match": {
-        "type": "number",
-        "description": "Erfahrung 1-10"
-      },
-      "motivation_quality": {
-        "type": "number",
-        "description": "Motivation 1-10"
-      },
-      "skills_match": {
-        "type": "number",
-        "description": "Skills 1-10"
-      }
-    },
-    "required": ["score", "strengths", "weaknesses", "recommendation", "summary", "experience_match", "motivation_quality", "skills_match"]
-  }
-  ```
-
-### 7. User Prompt konfigurieren
-
-Im AI Agent Node, setze den **User Prompt**:
-
-```
-Bewerte die folgende Bewerbung:
-
-Position: {{ $json.position }}
-Bewerber: {{ $json.name }}
-
-Berufserfahrung: {{ $json.berufserfahrung }} Jahre
-
-Anschreiben:
-{{ $json.anschreiben }}
-
-Qualifikationen & Skills:
-{{ $json.qualifikationen }}
-
-Analysiere die Bewerbung und verwende das save_evaluation Tool, um deine Bewertung zu speichern.
-```
-
-### 8. Google Sheet vorbereiten
+### 6. Google Sheet vorbereiten
 
 Erstelle ein Google Sheet mit folgenden Spalten:
 - Timestamp
@@ -187,7 +103,7 @@ Erstelle ein Google Sheet mit folgenden Spalten:
 - Motivation (1-10)
 - Skills (1-10)
 
-### 9. Google Sheets Node konfigurieren
+### 7. Google Sheets Node konfigurieren
 
 - Füge einen **Google Sheets** Node hinzu
 - Operation: **Append Row**
@@ -209,7 +125,7 @@ Erstelle ein Google Sheet mit folgenden Spalten:
   Skills: {{ $('AI Agent').item.json.skills_match }}
   ```
 
-### 10. Workflow testen
+### 8. Workflow testen
 
 - Aktiviere den Workflow
 - Fülle das Formular mehrmals mit unterschiedlichen Bewerbungsprofilen aus:
