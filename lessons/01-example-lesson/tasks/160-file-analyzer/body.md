@@ -71,7 +71,7 @@ return [{ json: { content } }];
 
 ### 4. AI Summarization
 
-- Add an **AI Agent** or **OpenAI** Node
+- Add an **AI Agent** Node
 - System Prompt:
   ```
   You are a data analyst who creates concise summaries of documents and datasets.

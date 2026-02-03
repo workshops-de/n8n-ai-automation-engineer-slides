@@ -60,7 +60,7 @@ Posted: FALSE
 
 ### 5. AI Content Generation
 
-- Add an **AI Agent** or **OpenAI** Node
+- Add an **AI Agent** Node
 - System Prompt:
   ```
   You are a social media expert who creates engaging posts.

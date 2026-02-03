@@ -2,85 +2,111 @@
 
 ## Goal
 
-Create a workflow that is automatically triggered when a new user signs up and uses AI to generate a personalized welcome email.
+Erstelle ein einfaches Anmeldeformular mit n8n Form, das einen Namen entgegennimmt und automatisch eine personalisierte Willkommens-Email mit Hilfe eines AI Agents generiert und versendet.
 
-## What You'll Learn
+## Was Du lernen wirst
 
-- Webhook Triggers for form integrations
-- Using AI for text generation
-- Mapping AI output to Email Nodes
-- Personalization through dynamic data
+- n8n Form für Datenerfassung verwenden
+- AI Agent für personalisierte Texte einsetzen
+- AI Output an Email Nodes weitergeben
+- Dynamische Personalisierung implementieren
 
-## Workflow Overview
+## Workflow Übersicht
 
-**Trigger** → **AI Agent** → **Email**
+**n8n Form Trigger** → **AI Agent** → **Email**
 
-## Step-by-Step Guide
+## Schritt-für-Schritt Anleitung
 
-### 1. Set Up Webhook (Alternative to Typeform)
+### 1. n8n Form Trigger erstellen
 
-Since Typeform requires an account, we'll use a simple webhook:
+- Füge einen **n8n Form Trigger** Node hinzu
+- Dies erstellt automatisch ein schönes, nutzbares Formular
 
-- Add a **Webhook Trigger**
-- Method: POST
-- Path: `/signup`
-- Note the Webhook URL
+### 2. Formularfelder konfigurieren
 
-### 2. Send Test Data
+Füge im n8n Form Trigger folgende Felder hinzu:
 
-Use a tool like Postman or curl to send test data:
+- **Feld 1: Name**
+  - Type: Text
+  - Label: "Dein Name"
+  - Required: Yes
+  - Placeholder: "Max Mustermann"
 
-```json
-{
-  "name": "Max Mustermann",
-  "email": "max@example.com",
-  "interests": "AI and automation"
-}
-```
+- **Feld 2: Email**
+  - Type: Email
+  - Label: "Deine E-Mail-Adresse"
+  - Required: Yes
+  - Placeholder: "max@beispiel.de"
 
-### 3. AI Agent for Email Generation
+### 3. Formular anpassen
 
-- Add an **AI Agent Node** (or OpenAI Chat Model)
-- Configure Claude/GPT
-- System Prompt:
+- **Form Title**: "Willkommen! Melde dich an"
+- **Form Description**: "Trage deinen Namen ein und erhalte eine personalisierte Willkommens-Email"
+- **Submit Button Text**: "Anmelden"
+- **Completion Message**: "Danke! Du erhältst gleich eine Email von uns."
+
+### 4. Formular testen
+
+- Klicke auf "Test Form" oder kopiere die Form URL
+- Fülle das Formular mit einem Testnamen aus
+- Sende ab und beobachte die Daten im Node Output
+
+### 5. AI Agent für Email-Generierung
+
+- Füge einen **AI Agent** Node hinzu
+- Wähle ein AI Model (z.B. GPT-4 oder Claude)
+- **System Prompt**:
   ```
-  You are a friendly onboarding assistant who writes personalized welcome emails.
+  Du bist ein freundlicher Onboarding-Assistent, der personalisierte Willkommens-Emails schreibt.
   
-  Given a new user's information, create a warm, engaging welcome email that:
-  1. Greets them by name
-  2. Welcomes them to the platform
-  3. References their stated interests
-  4. Includes a fun fact related to their interests
-  5. Keeps the tone friendly and encouraging
+  Erstelle eine warme, einladende Willkommens-Email die:
+  1. Den Nutzer persönlich beim Namen begrüßt
+  2. Ihn auf der Plattform willkommen heißt
+  3. Einen motivierenden, freundlichen Ton hat
+  4. Eine kreative, überraschende Botschaft enthält (z.B. ein inspirierendes Zitat, einen Witz, oder einen Fun Fact)
+  5. Kurz und prägnant ist (max. 150 Wörter)
   
-  Output only the email body text, ready to send.
+  Gib nur den Email-Text aus, keine Betreffzeile.
   ```
-- User Prompt: `New user signed up: Name: {{ $json.name }}, Email: {{ $json.email }}, Interests: {{ $json.interests }}`
 
-### 4. Configure Email Node
+- **User Prompt**:
+  ```
+  Neuer Nutzer hat sich angemeldet:
+  Name: {{ $json.name }}
+  
+  Erstelle eine personalisierte Willkommens-Email.
+  ```
 
-- Add a **Send Email** Node
-- Configure SMTP Credentials (Gmail, Outlook, etc.)
-- To: `{{ $('Webhook').item.json.email }}`
-- Subject: `Welcome to our platform, {{ $('Webhook').item.json.name }}!`
-- Text: `{{ $('AI Agent').item.json.output }}` (or according to your AI Node output)
+### 6. Email Node konfigurieren
 
-### 5. Test Workflow
+- Füge einen **Send Email** Node hinzu
+- Konfiguriere deine SMTP Credentials (Gmail, Outlook, etc.)
+  - **Tipp**: Für Gmail siehe Bonus-Hinweise zur App-Password Einrichtung
+- **To**: `{{ $('n8n Form Trigger').item.json.email }}`
+- **Subject**: `Willkommen {{ $('n8n Form Trigger').item.json.name }}! 🎉`
+- **Text**: `{{ $('AI Agent').item.json.output }}`
+  - **Hinweis**: Die genaue Output-Struktur kann je nach AI Model variieren. Prüfe den Output des AI Agent Nodes!
 
-- Activate the workflow
-- Send a POST request to the webhook
-- Check the generated email
+### 7. Workflow testen
+
+- Aktiviere den Workflow
+- Fülle das Formular mehrmals mit verschiedenen Namen aus
+- Prüfe die generierten Emails
+- Validiere, dass jede Email personalisiert und einzigartig ist
 
 ## Learning Objectives
 
-- ✓ Use webhooks for external integrations
-- ✓ Use AI for personalized content generation
-- ✓ Pass dynamic data between nodes
-- ✓ Implement email automations
+- ✓ n8n Forms für Datenerfassung nutzen
+- ✓ AI Agent für personalisierte Content-Generierung einsetzen
+- ✓ Dynamische Daten zwischen Nodes weitergeben
+- ✓ Email-Automationen implementieren
+- ✓ AI Output richtig mappen und verwenden
 
 ## Success Criteria
 
-- [ ] Webhook receives user data
-- [ ] AI generates personalized email
-- [ ] Email contains username and interests
-- [ ] Email is successfully sent
+- [ ] n8n Form ist erstellt und funktioniert
+- [ ] Form nimmt Name und Email entgegen
+- [ ] AI Agent generiert personalisierte Willkommens-Emails
+- [ ] Jede Email ist einzigartig und enthält den Namen
+- [ ] Email wird erfolgreich versendet
+- [ ] Workflow läuft End-to-End automatisch

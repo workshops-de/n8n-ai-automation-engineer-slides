@@ -5,7 +5,7 @@
 ### Vorbereitung
 
 1. **Google Sheet Template erstellen**: Bereite ein Beispiel-Sheet vor, damit Teilnehmer es kopieren können
-2. **API Keys prüfen**: Stelle sicher, dass alle Teilnehmer Zugriff auf ein AI Model haben (OpenAI, Anthropic, etc.)
+2. **API Keys prüfen**: Stelle sicher, dass alle Teilnehmer Zugriff auf ein AI Model haben (z.B. über Anthropic, Google, etc.)
 3. **Demo-Bewerbungen**: Halte 2-3 realistische Beispiel-Bewerbungen bereit
 
 ### Häufige Stolpersteine

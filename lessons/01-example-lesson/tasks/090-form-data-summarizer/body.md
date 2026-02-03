@@ -77,7 +77,7 @@ Füge im n8n Form Trigger folgende Felder hinzu:
 ### 5. AI Agent Node einrichten
 
 - Füge einen **AI Agent** Node hinzu
-- Wähle ein AI Model (z.B. OpenAI GPT-4 oder Claude)
+- Wähle ein AI Model (z.B. GPT-4 oder Claude)
 - **System Prompt** (im Agent):
   ```
   Du bist ein erfahrener HR-Spezialist, der Bewerbungen professionell bewertet.

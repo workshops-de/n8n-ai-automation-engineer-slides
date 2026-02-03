@@ -37,7 +37,7 @@ Transform a list of names into creative nicknames using AI.
 
 ### 2. AI Agent for Nickname Generation
 
-- Add an **AI Agent** or **OpenAI** Node
+- Add an **AI Agent** Node
 - **IMPORTANT**: Do NOT activate "Execute Once" in the node - it should run for each item
 - System Prompt:
   ```
