@@ -2,41 +2,67 @@
 
 ## Goal
 
-Receive form responses submitted via webhook, summarize them with AI, and save the result to Google Sheets.
+Create a feedback form using n8n Form, summarize responses with AI, and save the result to Google Sheets.
 
 ## What You'll Learn
 
-- Using AI for text summarization
+- Using n8n Form for data collection
+- AI for text summarization
 - Field mapping between nodes
 - Storing structured data in Sheets
 - Implementing sentiment analysis
 
 ## Workflow Overview
 
-**Webhook** → **AI Agent** → **Google Sheets**
+**n8n Form Trigger** → **AI Agent** → **Google Sheets**
 
 ## Step-by-Step Guide
 
-### 1. Create Webhook Trigger
+### 1. Create n8n Form Trigger
 
-- Add a **Webhook Trigger**
-- Method: POST
-- Path: `/feedback`
-- The webhook will receive feedback form data
+- Add an **n8n Form Trigger** Node
+- This creates a beautiful, ready-to-use form
 
-### 2. Test Form Data
+### 2. Configure Form Fields
 
-Example POST Body:
-```json
-{
-  "name": "Anna Schmidt",
-  "email": "anna@example.com",
-  "feedback": "I really love the new features! The AI integration is amazing and saves me so much time. However, the interface could be a bit more intuitive for beginners.",
-  "rating": 4
-}
-```
+In the n8n Form Trigger, add the following fields:
 
-### 3. AI Summarization Node
+- **Field 1: Name**
+  - Type: Text
+  - Label: "Your Name"
+  - Required: Yes
+
+- **Field 2: Email**
+  - Type: Email
+  - Label: "Your Email"
+  - Required: Yes
+
+- **Field 3: Rating**
+  - Type: Number
+  - Label: "How would you rate your experience? (1-5)"
+  - Required: Yes
+  - Min: 1, Max: 5
+
+- **Field 4: Feedback**
+  - Type: Textarea
+  - Label: "Please share your feedback"
+  - Required: Yes
+  - Placeholder: "Tell us about your experience..."
+
+### 3. Customize Form (Optional)
+
+- **Form Title**: "Customer Feedback Survey"
+- **Form Description**: "We value your feedback! Help us improve."
+- **Submit Button Text**: "Submit Feedback"
+- **Completion Message**: "Thank you for your feedback!"
+
+### 4. Test Your Form
+
+- Click "Test Form" or copy the form URL
+- Fill out the form with sample data
+- Submit and observe the data in the node output
+
+### 5. AI Summarization Node
 
 - Add an **AI Agent** or **OpenAI** Node
 - System Prompt:
@@ -64,7 +90,7 @@ Example POST Body:
   Feedback: {{ $json.feedback }}
   ```
 
-### 4. Set Up Google Sheets
+### 6. Set Up Google Sheets
 
 - Create a Google Sheet with columns:
   - Timestamp
@@ -77,29 +103,31 @@ Example POST Body:
   - Key Points
   - Action Items
 
-### 5. Configure Google Sheets Node
+### 7. Configure Google Sheets Node
 
 - Add a **Google Sheets** Node
 - Operation: Append Row
 - Map the fields:
   - Timestamp: `{{ new Date().toISOString() }}`
-  - Name: `{{ $('Webhook').item.json.name }}`
-  - Email: `{{ $('Webhook').item.json.email }}`
-  - Original Feedback: `{{ $('Webhook').item.json.feedback }}`
+  - Name: `{{ $('n8n Form Trigger').item.json.name }}`
+  - Email: `{{ $('n8n Form Trigger').item.json.email }}`
+  - Original Feedback: `{{ $('n8n Form Trigger').item.json.feedback }}`
   - Summary: `{{ $('AI Agent').item.json.summary }}`
   - Sentiment: `{{ $('AI Agent').item.json.sentiment }}`
-  - Rating: `{{ $('Webhook').item.json.rating }}`
+  - Rating: `{{ $('n8n Form Trigger').item.json.rating }}`
   - Key Points: `{{ $('AI Agent').item.json.key_points.join('; ') }}`
   - Action Items: `{{ $('AI Agent').item.json.action_items.join('; ') }}`
 
-### 6. Test
+### 8. Test
 
-- Send different feedback examples
-- Check the Google Sheet
-- Validate the AI summaries
+- Activate the workflow
+- Share the form URL with test users or fill it out yourself multiple times
+- Check the Google Sheet for summarized feedback
+- Validate the AI summaries and sentiment analysis
 
 ## Learning Objectives
 
+- ✓ Create forms with n8n Form Trigger
 - ✓ Implement AI summarization
 - ✓ Use JSON structures for consistent outputs
 - ✓ Field mapping between different data sources
@@ -108,7 +136,8 @@ Example POST Body:
 
 ## Success Criteria
 
-- [ ] Webhook receives feedback data
+- [ ] n8n Form is created with all required fields
+- [ ] Form is accessible and user-friendly
 - [ ] AI creates structured summary
 - [ ] Sentiment is correctly identified
 - [ ] Data is saved to Google Sheets
