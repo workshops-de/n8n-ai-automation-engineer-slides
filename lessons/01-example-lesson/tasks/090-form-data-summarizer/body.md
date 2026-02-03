@@ -1,144 +1,238 @@
-# AI Form Data Summarizer
+# AI-gestützte Bewerbungsauswertung
 
 ## Goal
 
-Create a feedback form using n8n Form, summarize responses with AI, and save the result to Google Sheets.
+Erstelle ein Bewerbungsformular mit n8n Form, lasse die Bewerbungen automatisch durch einen AI Agent bewerten und speichere die Ergebnisse in Google Sheets.
 
-## What You'll Learn
+## Was Du lernen wirst
 
-- Using n8n Form for data collection
-- AI for text summarization
-- Field mapping between nodes
-- Storing structured data in Sheets
-- Implementing sentiment analysis
+- Bewerbungsformulare mit n8n Form erstellen
+- AI Agent für automatische Bewerbungsbewertung einsetzen
+- Strukturierte AI-Analysen mit Tools durchführen
+- Field Mapping zwischen verschiedenen Nodes
+- Daten in Google Sheets speichern
 
-## Workflow Overview
+## Workflow Übersicht
 
 **n8n Form Trigger** → **AI Agent** → **Google Sheets**
 
-## Step-by-Step Guide
+## Schritt-für-Schritt Anleitung
 
-### 1. Create n8n Form Trigger
+### 1. n8n Form Trigger erstellen
 
-- Add an **n8n Form Trigger** Node
-- This creates a beautiful, ready-to-use form
+- Füge einen **n8n Form Trigger** Node hinzu
+- Dieser erstellt automatisch ein professionelles Bewerbungsformular
 
-### 2. Configure Form Fields
+### 2. Formularfelder konfigurieren
 
-In the n8n Form Trigger, add the following fields:
+Füge im n8n Form Trigger folgende Felder hinzu:
 
-- **Field 1: Name**
+- **Feld 1: Name**
   - Type: Text
-  - Label: "Your Name"
+  - Label: "Vollständiger Name"
   - Required: Yes
 
-- **Field 2: Email**
+- **Feld 2: Email**
   - Type: Email
-  - Label: "Your Email"
+  - Label: "E-Mail-Adresse"
   - Required: Yes
 
-- **Field 3: Rating**
+- **Feld 3: Position**
+  - Type: Text
+  - Label: "Gewünschte Position"
+  - Required: Yes
+  - Placeholder: "z.B. Senior Developer, Marketing Manager..."
+
+- **Feld 4: Berufserfahrung**
   - Type: Number
-  - Label: "How would you rate your experience? (1-5)"
+  - Label: "Jahre Berufserfahrung"
   - Required: Yes
-  - Min: 1, Max: 5
+  - Min: 0, Max: 50
 
-- **Field 4: Feedback**
+- **Feld 5: Anschreiben**
   - Type: Textarea
-  - Label: "Please share your feedback"
+  - Label: "Ihr Anschreiben / Motivation"
   - Required: Yes
-  - Placeholder: "Tell us about your experience..."
+  - Placeholder: "Warum möchten Sie bei uns arbeiten? Was sind Ihre Stärken?"
 
-### 3. Customize Form (Optional)
+- **Feld 6: Qualifikationen**
+  - Type: Textarea
+  - Label: "Relevante Skills und Qualifikationen"
+  - Required: Yes
+  - Placeholder: "Beschreiben Sie Ihre wichtigsten Fähigkeiten, Technologien, Zertifikate..."
 
-- **Form Title**: "Customer Feedback Survey"
-- **Form Description**: "We value your feedback! Help us improve."
-- **Submit Button Text**: "Submit Feedback"
-- **Completion Message**: "Thank you for your feedback!"
+### 3. Formular anpassen (Optional)
 
-### 4. Test Your Form
+- **Form Title**: "Online Bewerbung"
+- **Form Description**: "Wir freuen uns auf Ihre Bewerbung! Füllen Sie das Formular aus und unser AI-System wird Ihre Bewerbung analysieren."
+- **Submit Button Text**: "Bewerbung absenden"
+- **Completion Message**: "Vielen Dank für Ihre Bewerbung! Wir melden uns in Kürze bei Ihnen."
 
-- Click "Test Form" or copy the form URL
-- Fill out the form with sample data
-- Submit and observe the data in the node output
+### 4. Formular testen
 
-### 5. AI Summarization Node
+- Klicke auf "Test Form" oder kopiere die Form URL
+- Fülle das Formular mit Beispieldaten aus
+- Sende ab und beobachte die Daten im Node Output
 
-- Add an **AI Agent** or **OpenAI** Node
-- System Prompt:
+### 5. AI Agent Node einrichten
+
+- Füge einen **AI Agent** Node hinzu
+- Wähle ein AI Model (z.B. OpenAI GPT-4 oder Claude)
+- **System Prompt** (im Agent):
   ```
-  You are a data analyst who summarizes customer feedback.
+  Du bist ein erfahrener HR-Spezialist, der Bewerbungen professionell bewertet.
   
-  Given customer feedback, create:
-  1. A brief 1-2 sentence summary
-  2. Key points (bullet list)
-  3. Sentiment analysis (positive/negative/neutral)
-  4. Action items if any issues mentioned
-  
-  Output as JSON with this structure:
+  Analysiere die Bewerbung sorgfältig und erstelle eine strukturierte Bewertung.
+  Sei objektiv, fair und konstruktiv.
+  ```
+
+### 6. Tools für den AI Agent erstellen
+
+Der AI Agent soll ein Tool haben, um die Bewertung zu speichern:
+
+- **Tool Name**: `save_evaluation`
+- **Tool Description**: 
+  ```
+  Speichert die Bewerbungsbewertung mit folgenden Parametern:
+  - score: Gesamtbewertung von 1-10 (10 = exzellent)
+  - strengths: Liste der Stärken (Array)
+  - weaknesses: Liste der Schwächen (Array)
+  - recommendation: Empfehlung (EINLADEN, ABLEHNEN, WARTELISTE)
+  - summary: Kurze Zusammenfassung (2-3 Sätze)
+  - experience_match: Passt die Erfahrung zur Position? (1-10)
+  - motivation_quality: Qualität des Anschreibens (1-10)
+  - skills_match: Passung der Skills (1-10)
+  ```
+
+- **Tool Parameters** (JSON Schema):
+  ```json
   {
-    "summary": "...",
-    "key_points": ["...", "..."],
-    "sentiment": "positive/negative/neutral",
-    "action_items": ["..."]
+    "type": "object",
+    "properties": {
+      "score": {
+        "type": "number",
+        "description": "Gesamtbewertung 1-10"
+      },
+      "strengths": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Liste der Stärken"
+      },
+      "weaknesses": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Liste der Schwächen"
+      },
+      "recommendation": {
+        "type": "string",
+        "enum": ["EINLADEN", "ABLEHNEN", "WARTELISTE"],
+        "description": "Empfehlung"
+      },
+      "summary": {
+        "type": "string",
+        "description": "Zusammenfassung 2-3 Sätze"
+      },
+      "experience_match": {
+        "type": "number",
+        "description": "Erfahrung 1-10"
+      },
+      "motivation_quality": {
+        "type": "number",
+        "description": "Motivation 1-10"
+      },
+      "skills_match": {
+        "type": "number",
+        "description": "Skills 1-10"
+      }
+    },
+    "required": ["score", "strengths", "weaknesses", "recommendation", "summary", "experience_match", "motivation_quality", "skills_match"]
   }
   ```
-- User Prompt: 
+
+### 7. User Prompt konfigurieren
+
+Im AI Agent Node, setze den **User Prompt**:
+
+```
+Bewerte die folgende Bewerbung:
+
+Position: {{ $json.position }}
+Bewerber: {{ $json.name }}
+
+Berufserfahrung: {{ $json.berufserfahrung }} Jahre
+
+Anschreiben:
+{{ $json.anschreiben }}
+
+Qualifikationen & Skills:
+{{ $json.qualifikationen }}
+
+Analysiere die Bewerbung und verwende das save_evaluation Tool, um deine Bewertung zu speichern.
+```
+
+### 8. Google Sheet vorbereiten
+
+Erstelle ein Google Sheet mit folgenden Spalten:
+- Timestamp
+- Name
+- Email
+- Position
+- Berufserfahrung
+- Gesamtbewertung
+- Empfehlung
+- Zusammenfassung
+- Stärken
+- Schwächen
+- Erfahrung (1-10)
+- Motivation (1-10)
+- Skills (1-10)
+
+### 9. Google Sheets Node konfigurieren
+
+- Füge einen **Google Sheets** Node hinzu
+- Operation: **Append Row**
+- Wähle dein Google Sheet aus
+- Mappe die Felder:
   ```
-  Customer: {{ $json.name }}
-  Rating: {{ $json.rating }}/5
-  Feedback: {{ $json.feedback }}
+  Timestamp: {{ new Date().toISOString() }}
+  Name: {{ $('n8n Form Trigger').item.json.name }}
+  Email: {{ $('n8n Form Trigger').item.json.email }}
+  Position: {{ $('n8n Form Trigger').item.json.position }}
+  Berufserfahrung: {{ $('n8n Form Trigger').item.json.berufserfahrung }}
+  Gesamtbewertung: {{ $('AI Agent').item.json.score }}
+  Empfehlung: {{ $('AI Agent').item.json.recommendation }}
+  Zusammenfassung: {{ $('AI Agent').item.json.summary }}
+  Stärken: {{ $('AI Agent').item.json.strengths.join(', ') }}
+  Schwächen: {{ $('AI Agent').item.json.weaknesses.join(', ') }}
+  Erfahrung: {{ $('AI Agent').item.json.experience_match }}
+  Motivation: {{ $('AI Agent').item.json.motivation_quality }}
+  Skills: {{ $('AI Agent').item.json.skills_match }}
   ```
 
-### 6. Set Up Google Sheets
+### 10. Workflow testen
 
-- Create a Google Sheet with columns:
-  - Timestamp
-  - Name
-  - Email
-  - Original Feedback
-  - Summary
-  - Sentiment
-  - Rating
-  - Key Points
-  - Action Items
-
-### 7. Configure Google Sheets Node
-
-- Add a **Google Sheets** Node
-- Operation: Append Row
-- Map the fields:
-  - Timestamp: `{{ new Date().toISOString() }}`
-  - Name: `{{ $('n8n Form Trigger').item.json.name }}`
-  - Email: `{{ $('n8n Form Trigger').item.json.email }}`
-  - Original Feedback: `{{ $('n8n Form Trigger').item.json.feedback }}`
-  - Summary: `{{ $('AI Agent').item.json.summary }}`
-  - Sentiment: `{{ $('AI Agent').item.json.sentiment }}`
-  - Rating: `{{ $('n8n Form Trigger').item.json.rating }}`
-  - Key Points: `{{ $('AI Agent').item.json.key_points.join('; ') }}`
-  - Action Items: `{{ $('AI Agent').item.json.action_items.join('; ') }}`
-
-### 8. Test
-
-- Activate the workflow
-- Share the form URL with test users or fill it out yourself multiple times
-- Check the Google Sheet for summarized feedback
-- Validate the AI summaries and sentiment analysis
+- Aktiviere den Workflow
+- Fülle das Formular mehrmals mit unterschiedlichen Bewerbungsprofilen aus:
+  - Eine starke Bewerbung
+  - Eine schwache Bewerbung
+  - Eine durchschnittliche Bewerbung
+- Prüfe das Google Sheet auf vollständige Bewertungen
+- Validiere, ob der AI Agent konsistent und fair bewertet
 
 ## Learning Objectives
 
-- ✓ Create forms with n8n Form Trigger
-- ✓ Implement AI summarization
-- ✓ Use JSON structures for consistent outputs
-- ✓ Field mapping between different data sources
-- ✓ Understand sentiment analysis
-- ✓ Use Google Sheets as a database
+- ✓ Komplexe Formulare mit n8n Form erstellen
+- ✓ AI Agent mit Tools für strukturierte Outputs nutzen
+- ✓ Tool Schemas mit JSON Schema definieren
+- ✓ Automatisierte Bewertungssysteme aufbauen
+- ✓ Multi-dimensionale Analysen durchführen
+- ✓ Google Sheets als Datenbank verwenden
 
 ## Success Criteria
 
-- [ ] n8n Form is created with all required fields
-- [ ] Form is accessible and user-friendly
-- [ ] AI creates structured summary
-- [ ] Sentiment is correctly identified
-- [ ] Data is saved to Google Sheets
-- [ ] All fields are correctly mapped
+- [ ] Bewerbungsformular mit allen Feldern erstellt
+- [ ] AI Agent mit save_evaluation Tool konfiguriert
+- [ ] Bewertungen werden strukturiert ausgegeben
+- [ ] Empfehlungen (EINLADEN/ABLEHNEN/WARTELISTE) werden korrekt gesetzt
+- [ ] Alle Bewertungsdaten landen in Google Sheets
+- [ ] Workflow funktioniert End-to-End
