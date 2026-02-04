@@ -41,10 +41,6 @@ Create an Error Logger Workflow that catches and logs all errors in your workflo
    - Option B: Email Notification
      - Add an Email Node
      - Send a formatted error email to yourself
-   
-   - Option C: Slack/Telegram Notification
-     - Add a Messaging Node
-     - Send instant notifications
 
 4. **Configure Workflow Settings**
    - Go to the Workflow Settings of your test workflow
@@ -52,7 +48,7 @@ Create an Error Logger Workflow that catches and logs all errors in your workflo
    - Save the settings
 
 5. **Provoke and Test Errors**
-   - Intentionally create an error (e.g., invalid API key)
+   - Intentionally create an error (e.g., invalid API key -> there should be one in your project "INVALID TEST KEY TO PROVOCE ERROR")
    - Check if the Error Logger is triggered
    - Verify the logged information
 
