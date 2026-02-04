@@ -16,7 +16,6 @@ Bot: "🚀 Dein Space-Nickname: Captain Maximus der Sternenwanderer!"
 ## 2. Multiple Varianten zur Auswahl
 
 Lass den AI Agent 3 verschiedene Nickname-Optionen generieren:
-- Erweitere das Tool-Schema um ein Array `nickname_options: [string, string, string]`
 - Der AI Agent präsentiert alle 3 Optionen
 - Der Nutzer wählt eine aus (z.B. "Option 1")
 - Nur die gewählte wird gespeichert
