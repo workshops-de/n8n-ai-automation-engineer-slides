@@ -77,7 +77,7 @@ Füge im n8n Form Trigger folgende Felder hinzu:
 ### 5. AI Agent Node einrichten
 
 - Füge einen **AI Agent** Node hinzu
-- Wähle ein AI Model (z.B. GPT-4 oder Claude)
+- Wähle ein AI Model 
 - **System Prompt** (im Agent):
   ```
   Du bist ein erfahrener HR-Spezialist, der Bewerbungen professionell bewertet.
@@ -108,22 +108,7 @@ Erstelle ein Google Sheet mit folgenden Spalten:
 - Füge einen **Google Sheets** Node hinzu
 - Operation: **Append Row**
 - Wähle dein Google Sheet aus
-- Mappe die Felder:
-  ```
-  Timestamp: {{ new Date().toISOString() }}
-  Name: {{ $('n8n Form Trigger').item.json.name }}
-  Email: {{ $('n8n Form Trigger').item.json.email }}
-  Position: {{ $('n8n Form Trigger').item.json.position }}
-  Berufserfahrung: {{ $('n8n Form Trigger').item.json.berufserfahrung }}
-  Gesamtbewertung: {{ $('AI Agent').item.json.score }}
-  Empfehlung: {{ $('AI Agent').item.json.recommendation }}
-  Zusammenfassung: {{ $('AI Agent').item.json.summary }}
-  Stärken: {{ $('AI Agent').item.json.strengths.join(', ') }}
-  Schwächen: {{ $('AI Agent').item.json.weaknesses.join(', ') }}
-  Erfahrung: {{ $('AI Agent').item.json.experience_match }}
-  Motivation: {{ $('AI Agent').item.json.motivation_quality }}
-  Skills: {{ $('AI Agent').item.json.skills_match }}
-  ```
+- Mappe die Felder
 
 ### 8. Workflow testen
 

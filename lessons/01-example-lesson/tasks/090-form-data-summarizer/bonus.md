@@ -45,3 +45,20 @@ Entferne Name, Email und andere persönliche Daten vor der AI-Bewertung um Bias 
 - Ersetze Namen durch "Bewerber #123"
 - Speichere die Zuordnung in einem separaten Sheet
 - Erst nach der Bewertung werden die echten Daten wieder zusammengeführt
+
+## 6. Human Review Integration
+
+Nutze den "Wait for approval" Node von n8n für eine manuelle Überprüfung:
+- Nach der AI-Bewertung wird der Workflow pausiert
+- Integriere verschiedene Review-Kanäle:
+  - **Gmail**: Sende eine Email mit der Bewerbungszusammenfassung und Approve/Reject Links
+  - **Google Chat**: Poste die Bewertung in einen Review-Channel mit Interaktions-Buttons
+  - **Slack**: Alternative für Teams, die Slack nutzen
+
+**Inhalt der Review-Nachricht:**
+- Vollständige Bewerbungszusammenfassung
+- AI-Bewertung mit Score und Begründung
+- Empfehlung (EINLADEN/ABLEHNEN/WARTELISTE)
+- Buttons/Links zur finalen Entscheidung
+
+Nach der manuellen Entscheidung wird der Workflow fortgesetzt und die finale Aktion (z.B. Email an Bewerber) ausgeführt.

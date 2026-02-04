@@ -79,13 +79,7 @@ Füge im n8n Form Trigger folgende Felder hinzu:
 
 ### 6. Email Node konfigurieren
 
-- Füge einen **Send Email** Node hinzu
-- Konfiguriere deine SMTP Credentials (Gmail, Outlook, etc.)
-  - **Tipp**: Für Gmail siehe Bonus-Hinweise zur App-Password Einrichtung
-- **To**: `{{ $('n8n Form Trigger').item.json.email }}`
-- **Subject**: `Willkommen {{ $('n8n Form Trigger').item.json.name }}! 🎉`
-- **Text**: `{{ $('AI Agent').item.json.output }}`
-  - **Hinweis**: Die genaue Output-Struktur kann je nach AI Model variieren. Prüfe den Output des AI Agent Nodes!
+- Füge einen **Gmail: Send Email** Node hinzu und konfiguriere diese
 
 ### 7. Workflow testen
 
