@@ -43,7 +43,7 @@ Erstelle ein Google Sheet mit folgenden Spalten:
 
 ### 4. Google Sheets Node konfigurieren
 
-- Füge einen **Google Sheets** Node hinzu
+- Füge einen **Google Sheets** Tool hinzu
 - Operation: **Append Row**
 - Wähle dein vorbereitetes Google Sheet
 - Mappe die Felder
