@@ -13,65 +13,33 @@ Download a PDF/CSV/JSON file, use AI to summarize its contents, and send a Teleg
 
 ## Workflow Overview
 
-**HTTP Request (Download File)** → **Extract Data** → **AI Summarization** → **Telegram**
+**When Chat Message Received** → **Edit Fields** → **AI Agent** → **Send Message**
 
 ## Step-by-Step Guide
 
-### 1. HTTP Request - Download File
+### 1. When Chat Message Received - File Upload
 
-- Add a **Manual Trigger**
-- Add an **HTTP Request** Node
-- Choose a public test file:
+- Add a **When chat message received** Trigger
+- **Wichtig**: Aktiviere **"Allow File Uploads"** in den Chat Settings
+- Users can upload PDF, CSV, or other document files via chat
 
-**Option A: PDF**
-```
-URL: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
-Method: GET
-Response Format: File
-```
+### 2. Edit Fields - Binary Data Mapping
 
-**Option B: CSV**
-```
-URL: https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv
-Method: GET
-Response Format: File
-```
+⚠️ **Wichtiger Hinweis**: Diese Node ist notwendig, um die Binary-Daten korrekt an den AI Agent weiterzugeben.
 
-**Option C: JSON**
-```
-URL: https://jsonplaceholder.typicode.com/posts
-Method: GET
-Response Format: JSON
-```
+- Add an **Edit Fields (Set)** Node
+- Operation: **Add/Modify Fields**
+- Füge ein neues Feld hinzu:
+  - **Field Name**: `binary`
+  - **Field Value**: `{{ $input.item.binary.data0 }}`
+- Dies mappt die hochgeladenen Datei-Daten auf das `binary` Feld, das der AI Agent verarbeiten kann
 
-### 2. Extract Data
-
-**For PDF:**
-- Add an **Extract from File** Node
-- Select "Extract from PDF"
-
-**For CSV:**
-- Add a **Spreadsheet File** Node
-- Operation: Read from File
-
-**For JSON:**
-- No extraction needed, data is already in JSON format
-
-### 3. Prepare Data
-
-- Add a **Code Node** (optional)
-- Convert data into a readable string:
-
-```javascript
-// For CSV or JSON
-const data = $input.all();
-const content = JSON.stringify(data.slice(0, 10), null, 2); // First 10 items
-return [{ json: { content } }];
-```
-
-### 4. AI Summarization
+### 3. AI Agent - File Analysis
 
 - Add an **AI Agent** Node
+
+⚠️ **Wichtig**: Aktiviere **"Automatically Passthrough Binary Images"** in den Agent Options!
+
 - System Prompt:
   ```
   You are a data analyst who creates concise summaries of documents and datasets.
@@ -85,54 +53,45 @@ return [{ json: { content } }];
   Keep your response concise and actionable.
   Format your response clearly with bullet points.
   ```
+
 - User Prompt:
   ```
-  Analyze and summarize this file content:
+  {{ $('When chat message received').item.json.chatInput }}
   
-  {{ $json.content || $json.text }}
+  {{ $('When chat message received').item.json.files.toJsonString() }}
   ```
 
-### 5. Set Up Telegram Bot
+### 4. Send Response
 
-If not already done:
-- Create a bot with @BotFather in Telegram
-- Note the Bot Token
-- Start a chat with your bot
-- Note your Chat ID (use @userinfobot)
+- Die Antwort wird automatisch über den Chat zurückgeschickt
+- Konfiguriere optional eine eigene Antwort-Nachricht
 
-### 6. Send Telegram Notification
+### 4. Test
 
-- Add a **Telegram** Node
-- Operation: Send Message
-- Chat ID: Your Chat ID
-- Text:
-  ```
-  📄 File Analysis Report
-  
-  {{ $('AI Agent').item.json.output }}
-  
-  Analyzed at: {{ new Date().toLocaleString() }}
-  ```
-
-### 7. Test
-
-- Execute the workflow
-- Check the Telegram notification
-- Validate the summary
+- Öffne den Chat
+- Lade eine Datei (PDF, CSV, etc.) hoch
+- Füge eine Frage oder Kontext hinzu (z.B. "Was sind die wichtigsten Punkte?")
+- Warte auf die AI-Analyse
+- Überprüfe die Antwort
 
 ## Learning Objectives
 
 - ✓ Process binary files in N8N
-- ✓ Handle different file formats (PDF, CSV, JSON)
-- ✓ Use AI for document summarization
-- ✓ Integrate Telegram for notifications
-- ✓ Automate file download and processing
+- ✓ Handle file uploads via chat triggers
+- ✓ Map binary data correctly with Edit Fields
+- ✓ Use AI Agent with "Automatically Passthrough Binary Images"
+- ✓ Reference previous nodes correctly in expressions
+- ✓ Work with `$input.item.binary.data0` for file handling
+- ✓ Use AI for direct document analysis
 
 ## Success Criteria
 
-- [ ] File is successfully downloaded
-- [ ] Content is correctly extracted
+- [ ] Chat trigger accepts file uploads ("Allow File Uploads" enabled)
+- [ ] Edit Fields node maps binary data correctly (`binary` = `{{ $input.item.binary.data0 }}`)
+- [ ] AI Agent has "Automatically Passthrough Binary Images" enabled
+- [ ] User's chat input is correctly referenced: `{{ $('When chat message received').item.json.chatInput }}`
+- [ ] File metadata is correctly referenced: `{{ $('When chat message received').item.json.files.toJsonString() }}`
 - [ ] AI creates meaningful summary
 - [ ] Top 3 points are identified
-- [ ] Telegram notification is received
+- [ ] Response is sent back via chat
 - [ ] Message is well formatted and readable
