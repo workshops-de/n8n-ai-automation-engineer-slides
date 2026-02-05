@@ -2,132 +2,152 @@
 
 ## Goal
 
-Automatically generate social media posts from topics stored in Google Sheets and schedule them for Twitter (X) or LinkedIn.
+Erstelle einen vollautomatischen Content-Generator Workflow, der über Google Forms getriggert wird. Nutzer können Topics über ein Formular einreichen, der AI Agent generiert einen Social Media Post und speichert diesen als Google Doc ab.
 
-## What You'll Learn
+## Was Du lernen wirst
 
-- Scheduled Workflows (Cron)
-- AI Content Generation
-- Dynamic Posting
-- Social Media Integration
-- Google Sheets as Content Source
+- Google Forms als Input-Quelle
+- Google Sheets Trigger (on new row)
+- AI Agent mit Google Docs Tool
+- Content-Generierung mit plattformspezifischen Regeln
+- Event-driven AI-Workflows
+- Google Drive Integration
 
-## Workflow Overview
+## Workflow Übersicht
 
-**Schedule (Cron)** → **Google Sheets** → **AI** → **Twitter (X) or LinkedIn**
+**Google Form** → **Google Sheets** → **Google Sheets Trigger** → **AI Agent** → **Google Doc**
 
-## Step-by-Step Guide
+## Schritt-für-Schritt Anleitung
 
-### 1. Prepare Google Sheet
+### 1. Google Form erstellen
 
-Create a Google Sheet with the following columns:
-- Topic (e.g., "AI in Healthcare", "Remote Work Tips")
-- Platform (Twitter, LinkedIn, or Both)
-- Posted (TRUE/FALSE)
-- Post Date
-- Generated Post
+Erstelle ein Google Form mit folgenden Feldern:
 
-Add some topics:
+**Feld 1: Topic**
+- Typ: Kurze Antwort
+- Pflichtfeld: Ja
+- Beschreibung: "Über welches Thema soll ein Social Media Post erstellt werden?"
+- Beispiel: "AI in Healthcare", "Remote Work Tips"
+
+**Feld 2: Platform**
+- Typ: Multiple Choice
+- Optionen: Twitter, LinkedIn, Both
+- Pflichtfeld: Ja
+
+**Form Einstellungen:**
+- Verknüpfe das Form mit einem neuen Google Sheet
+- Google Forms erstellt automatisch ein Sheet mit den Antworten
+- Das Sheet bekommt automatisch Spalten: Timestamp, Topic, Platform
+
+### 2. Google Sheet erweitern
+
+Öffne das verknüpfte Google Sheet und füge zusätzliche Spalten hinzu:
+- **Status** (für Tracking: Generated, Posted, etc.)
+- **Document URL** (Link zum Google Doc)
+- **Generated Date** (wann wurde generiert)
+
+Dein Sheet hat jetzt:
+- Timestamp (automatisch von Google Forms)
+- Topic (von Form)
+- Platform (von Form)
+- Status (manuell hinzugefügt)
+- Document URL (manuell hinzugefügt)
+- Generated Date (manuell hinzugefügt)
+
+### 3. Google Sheets Trigger einrichten
+
+- Füge einen **Google Sheets Trigger** hinzu
+- Trigger: **On Row Added**
+- Wähle dein Google Sheet aus
+- Sheet: Das Sheet mit den Form-Antworten (meist "Formularantworten 1")
+- Dieser Trigger feuert automatisch, wenn jemand das Form ausfüllt!
+
+### 4. AI Agent mit Tools konfigurieren
+
+- Füge einen **AI Agent** Node hinzu
+- Wähle ein leistungsfähiges Model (GPT-4, Claude, etc.)
+
+**System Prompt erstellen:**
+
+Der System Prompt ist der wichtigste Teil dieser Challenge! Er muss dem AI Agent klar erklären:
+- Was seine Aufgabe ist
+- Welche Tools er verwenden soll
+- Welche Regeln für die verschiedenen Plattformen gelten
+- Wie er die Daten aus Google Sheets verarbeiten soll
+
+💡 **Tipp:** Nutze ChatGPT oder Claude um den perfekten System Prompt zu erstellen!
+
+Frage z.B.:
+> "Ich baue einen n8n Workflow mit einem AI Agent, der Social Media Posts erstellt. Der Agent hat Tools für: Google Sheets (Read), Twitter, LinkedIn, und Google Sheets (Update). Erstelle mir einen System Prompt, der dem Agent erklärt wie er autonom Posts aus dem Sheet liest, generiert, veröffentlicht und das Sheet aktualisiert. Twitter max 280 Zeichen, LinkedIn max 300 Zeichen."
+
+Experimentiere mit verschiedenen Prompt-Varianten und teste, welche am besten funktioniert!
+
+**User Prompt:**
 ```
-Topic: AI and Automation in 2024
-Platform: Twitter
-Posted: FALSE
+Ein neues Topic wurde über das Google Form eingereicht:
 
-Topic: Best Practices for Remote Teams
-Platform: LinkedIn
-Posted: FALSE
+Topic: {{ HIER MUSST DU SELBER WAS EINTRAGEN 😉 }}
+Platform: {{ HIER MUSST DU SELBER WAS EINTRAGEN 😉 }}
+
+Erstelle einen passenden Social Media Post, speichere ihn als Google Doc und update das Google Sheet mit dem Doc-Link.
 ```
 
-### 2. Set Up Schedule Trigger
+### 5. Google Drive Ordner vorbereiten
 
-- Add a **Schedule Trigger**
-- For testing: Every day at 10:00 AM
-- Cron Expression: `0 10 * * *`
-- Or for more frequent testing: `*/15 * * * *` (every 15 minutes)
+- Erstelle einen Ordner in Google Drive für die generierten Posts
+- Beispiel: "AI Social Media Posts"
+- Notiere dir die Folder ID aus der URL (Optional, für bessere Organisation)
 
-### 3. Google Sheets Node - Fetch Topics
+### 6. Tools zum AI Agent hinzufügen
 
-- Add a **Google Sheets** Node
-- Operation: Read Rows
-- Range: All rows
-- Filter: Only rows where `Posted = FALSE`
+Füge folgende Tools zum AI Agent hinzu:
 
-### 4. Add Condition
+**Tool 1: Google Docs (Create)**
+- Node: Google Docs
+- Operation: Create Document
+- Zweck: Post als Google Doc speichern
+- Tool Description: "Create a new Google Doc with the generated social media post. Title format: '[Platform] - [Topic] - [Date]'. Include the full post text in the document."
 
-- Add an **IF Node**
-- Condition: Check if topics are available
-- If no unposted topics: End workflow
-
-### 5. AI Content Generation
-
-- Add an **AI Agent** Node
-- System Prompt:
-  ```
-  You are a social media expert who creates engaging posts.
-  
-  Rules for Twitter (max 280 characters):
-  - Keep it concise and punchy
-  - Use 1-2 relevant hashtags
-  - Include a hook or question
-  
-  Rules for LinkedIn (max 3000 characters, but keep under 300):
-  - Professional tone
-  - Add value or insight
-  - Include relevant hashtags
-  - Call to action
-  
-  Output only the post text, ready to publish.
-  ```
-- User Prompt:
-  ```
-  Platform: {{ $json.Platform }}
-  Topic: {{ $json.Topic }}
-  
-  Create an engaging post about this topic.
-  ```
-
-### 6. Set Up Social Media Node
-
-**Option A: Twitter (X)**
-- Add a **Twitter** Node
-- Operation: Create Tweet
-- Text: `{{ $('AI').item.json.output }}`
-
-**Option B: LinkedIn**
-- Add a **LinkedIn** Node
-- Operation: Create Post
-- Text: `{{ $('AI').item.json.output }}`
-
-**Tip**: You can use a Switch/Router Node to automatically choose the right network based on the platform.
-
-### 7. Google Sheets Update
-
-- Add another **Google Sheets** Node
+**Tool 2: Google Sheets (Update)**
+- Node: Google Sheets
 - Operation: Update Row
-- Update:
-  - Posted: TRUE
-  - Post Date: `{{ new Date().toISOString() }}`
-  - Generated Post: `{{ $('AI').item.json.output }}`
+- Zweck: Zeile mit Status und Doc-Link aktualisieren
+- Tool Description: "Update the Google Sheet row that triggered the workflow. Set Status='Generated', add Document URL and Generated Date."
 
-### 8. Activate and Test Workflow
+### 7. Workflow aktivieren und testen
 
-- Activate the workflow
-- Wait for the next scheduled execution
-- Or execute manually for testing
+- Aktiviere den Workflow
+- Öffne dein Google Form
+- Fülle das Formular aus mit einem Test-Topic:
+  - Topic: "AI in Healthcare"
+  - Platform: Twitter
+- Sende das Form ab
+- Der Workflow startet automatisch!
+- Beobachte wie der AI Agent:
+  1. Die neue Zeile aus dem Trigger erhält
+  2. Einen Post für das Topic generiert (plattformspezifisch)
+  3. Ein Google Doc mit dem Post erstellt
+  4. Die Zeile im Sheet aktualisiert (Status, Doc URL, Date)
+- Öffne das Google Doc und prüfe den generierten Post!
 
 ## Learning Objectives
 
-- ✓ Implement scheduled workflows with Cron
-- ✓ Use AI for content generation
-- ✓ Dynamic posting based on data
-- ✓ Platform-specific content rules
-- ✓ Google Sheets as Content Management System
+- ✓ Google Forms als Input-Quelle nutzen
+- ✓ Google Sheets Trigger (On Row Added) einrichten
+- ✓ Event-driven Workflows erstellen
+- ✓ AI Agent mit Google Docs Tool
+- ✓ Google Docs programmatisch erstellen
+- ✓ Google Sheets Update als Tool nutzen
+- ✓ Platform-spezifische Content-Regeln in AI Prompts
 
 ## Success Criteria
 
-- [ ] Schedule Trigger runs automatically
-- [ ] Topics are read from Google Sheets
-- [ ] AI generates platform-specific posts
-- [ ] Posts are published on social media
-- [ ] Google Sheets is updated
-- [ ] No duplicates are posted
+- [ ] Google Form ist erstellt und mit Google Sheet verknüpft
+- [ ] Google Sheets Trigger (On Row Added) ist konfiguriert
+- [ ] Form-Submission triggert automatisch den Workflow
+- [ ] AI Agent erhält Topic und Platform aus der neuen Zeile
+- [ ] AI Agent generiert plattformspezifische Posts
+- [ ] AI Agent erstellt Google Doc mit dem Post
+- [ ] Google Doc hat sinnvollen Titel und korrekten Inhalt
+- [ ] AI Agent aktualisiert Sheet mit Doc URL und Status
+- [ ] Gesamter Workflow läuft event-driven und autonom
