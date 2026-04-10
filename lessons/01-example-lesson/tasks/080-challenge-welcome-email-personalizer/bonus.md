@@ -1,29 +1,28 @@
 # Bonus Challenges
 
-## 1. HTML Email mit Styling
+## 1. HTML Email with Styling
 
-Erweitere den Workflow um schön formatierte HTML-Emails:
-- Füge ein zusätzliches Form-Feld "Lieblings-Farbe" hinzu
-- Lass den AI Agent eine Email mit HTML-Struktur generieren
-- Verwende die Lieblings-Farbe im Email-Design
-- Im Email Node: Aktiviere HTML-Modus
+Extend the workflow with nicely formatted HTML emails:
+- Add an additional form field "Favorite Color"
+- Have the AI Agent generate an email with HTML structure
+- Use the favorite color in the email design
+- In the Email Node: Enable HTML mode
 
 ## 2. Multi-Language Support
 
-- Füge ein Dropdown-Feld "Sprache" im Form hinzu (Deutsch, Englisch, Spanisch)
-- Erweitere den System Prompt: "Schreibe die Email in der Sprache: {{ $json.sprache }}"
-- Teste mit verschiedenen Sprachen
+- Add a dropdown field "Language" in the form (German, English, Spanish)
+- Extend the System Prompt: "Write the email in the language: {{ $json.language }}"
+- Test with different languages
 
-## 3. Verschiedene Trigger kombinieren
+## 3. Combine Different Triggers
 
-Teste und kombiniere verschiedene Trigger-Quellen für deinen Workflow:
-- Google Forms als Datenquelle
-- Neuer Eintrag in einem Google Sheet
-- Webhook als Trigger
+Test and combine different trigger sources for your workflow:
+- Google Forms as data source
+- New entry in a Google Sheet
+- Webhook as trigger
 - n8n Form Trigger
 
-**Datenströme zusammenführen:**
-- Nutze die "Edit Fields (Set)" Node um die verschiedenen Datenformate zu vereinheitlichen
-- Mappe die Felder (Name, Email, etc.) auf ein einheitliches Schema
-- So kann dein AI Agent mit allen Datenquellen arbeiten, unabhängig vom ursprünglichen Trigger
-
+**Merging Data Streams:**
+- Use the "Edit Fields (Set)" Node to standardize the different data formats
+- Map the fields (Name, Email, etc.) to a unified schema
+- This way your AI Agent can work with all data sources, regardless of the original trigger

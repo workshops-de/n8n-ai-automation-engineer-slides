@@ -20,25 +20,25 @@ Download a PDF/CSV/JSON file, use AI to summarize its contents, and send a Teleg
 ### 1. When Chat Message Received - File Upload
 
 - Add a **When chat message received** Trigger
-- **Wichtig**: Aktiviere **"Allow File Uploads"** in den Chat Settings
+- **Important**: Enable **"Allow File Uploads"** in the Chat Settings
 - Users can upload PDF, CSV, or other document files via chat
 
 ### 2. Edit Fields - Binary Data Mapping
 
-⚠️ **Wichtiger Hinweis**: Diese Node ist notwendig, um die Binary-Daten korrekt an den AI Agent weiterzugeben.
+⚠️ **Important Note**: This Node is necessary to correctly pass the binary data to the AI Agent.
 
 - Add an **Edit Fields (Set)** Node
 - Operation: **Add/Modify Fields**
-- Füge ein neues Feld hinzu:
+- Add a new field:
   - **Field Name**: `binary`
   - **Field Value**: `{{ $input.item.binary.data0 }}`
-- Dies mappt die hochgeladenen Datei-Daten auf das `binary` Feld, das der AI Agent verarbeiten kann
+- This maps the uploaded file data to the `binary` field that the AI Agent can process
 
 ### 3. AI Agent - File Analysis
 
 - Add an **AI Agent** Node
 
-⚠️ **Wichtig**: Aktiviere **"Automatically Passthrough Binary Images"** in den Agent Options!
+⚠️ **Important**: Enable **"Automatically Passthrough Binary Images"** in the Agent Options!
 
 - System Prompt:
   ```
@@ -63,16 +63,16 @@ Download a PDF/CSV/JSON file, use AI to summarize its contents, and send a Teleg
 
 ### 4. Send Response
 
-- Die Antwort wird automatisch über den Chat zurückgeschickt
-- Konfiguriere optional eine eigene Antwort-Nachricht
+- The response is automatically sent back via chat
+- Optionally configure a custom response message
 
 ### 4. Test
 
-- Öffne den Chat
-- Lade eine Datei (PDF, CSV, etc.) hoch
-- Füge eine Frage oder Kontext hinzu (z.B. "Was sind die wichtigsten Punkte?")
-- Warte auf die AI-Analyse
-- Überprüfe die Antwort
+- Open the chat
+- Upload a file (PDF, CSV, etc.)
+- Add a question or context (e.g., "What are the most important points?")
+- Wait for the AI analysis
+- Check the response
 
 ## Learning Objectives
 

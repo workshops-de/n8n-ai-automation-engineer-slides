@@ -1,139 +1,139 @@
-# AI-gestützte Bewerbungsauswertung
+# AI-Powered Application Evaluation
 
 ## Goal
 
-Erstelle ein Bewerbungsformular mit n8n Form, lasse die Bewerbungen automatisch durch einen AI Agent bewerten und speichere die Ergebnisse in Google Sheets.
+Create an application form with n8n Form, have the applications automatically evaluated by an AI Agent, and save the results in Google Sheets.
 
-## Was Du lernen wirst
+## What You'll Learn
 
-- Bewerbungsformulare mit n8n Form erstellen
-- AI Agent für automatische Bewerbungsbewertung einsetzen
-- Strukturierte AI-Analysen mit Tools durchführen
-- Field Mapping zwischen verschiedenen Nodes
-- Daten in Google Sheets speichern
+- Create application forms with n8n Form
+- Use AI Agent for automatic application evaluation
+- Perform structured AI analyses with tools
+- Field mapping between different Nodes
+- Save data in Google Sheets
 
-## Workflow Übersicht
+## Workflow Overview
 
 **n8n Form Trigger** → **AI Agent** → **Google Sheets**
 
-## Schritt-für-Schritt Anleitung
+## Step-by-Step Guide
 
-### 1. n8n Form Trigger erstellen
+### 1. Create n8n Form Trigger
 
-- Füge einen **n8n Form Trigger** Node hinzu
-- Dieser erstellt automatisch ein professionelles Bewerbungsformular
+- Add an **n8n Form Trigger** Node
+- This automatically creates a professional application form
 
-### 2. Formularfelder konfigurieren
+### 2. Configure Form Fields
 
-Füge im n8n Form Trigger folgende Felder hinzu:
+Add the following fields in the n8n Form Trigger:
 
-- **Feld 1: Name**
+- **Field 1: Name**
   - Type: Text
-  - Label: "Vollständiger Name"
+  - Label: "Full Name"
   - Required: Yes
 
-- **Feld 2: Email**
+- **Field 2: Email**
   - Type: Email
-  - Label: "E-Mail-Adresse"
+  - Label: "Email Address"
   - Required: Yes
 
-- **Feld 3: Position**
+- **Field 3: Position**
   - Type: Text
-  - Label: "Gewünschte Position"
+  - Label: "Desired Position"
   - Required: Yes
-  - Placeholder: "z.B. Senior Developer, Marketing Manager..."
+  - Placeholder: "e.g. Senior Developer, Marketing Manager..."
 
-- **Feld 4: Berufserfahrung**
+- **Field 4: Work Experience**
   - Type: Number
-  - Label: "Jahre Berufserfahrung"
+  - Label: "Years of Work Experience"
   - Required: Yes
   - Min: 0, Max: 50
 
-- **Feld 5: Anschreiben**
+- **Field 5: Cover Letter**
   - Type: Textarea
-  - Label: "Ihr Anschreiben / Motivation"
+  - Label: "Your Cover Letter / Motivation"
   - Required: Yes
-  - Placeholder: "Warum möchten Sie bei uns arbeiten? Was sind Ihre Stärken?"
+  - Placeholder: "Why do you want to work with us? What are your strengths?"
 
-- **Feld 6: Qualifikationen**
+- **Field 6: Qualifications**
   - Type: Textarea
-  - Label: "Relevante Skills und Qualifikationen"
+  - Label: "Relevant Skills and Qualifications"
   - Required: Yes
-  - Placeholder: "Beschreiben Sie Ihre wichtigsten Fähigkeiten, Technologien, Zertifikate..."
+  - Placeholder: "Describe your most important skills, technologies, certifications..."
 
-### 3. Formular anpassen (Optional)
+### 3. Customize Form (Optional)
 
-- **Form Title**: "Online Bewerbung"
-- **Form Description**: "Wir freuen uns auf Ihre Bewerbung! Füllen Sie das Formular aus und unser AI-System wird Ihre Bewerbung analysieren."
-- **Submit Button Text**: "Bewerbung absenden"
-- **Completion Message**: "Vielen Dank für Ihre Bewerbung! Wir melden uns in Kürze bei Ihnen."
+- **Form Title**: "Online Application"
+- **Form Description**: "We look forward to your application! Fill out the form and our AI system will analyze your application."
+- **Submit Button Text**: "Submit Application"
+- **Completion Message**: "Thank you for your application! We'll be in touch shortly."
 
-### 4. Formular testen
+### 4. Test Form
 
-- Klicke auf "Test Form" oder kopiere die Form URL
-- Fülle das Formular mit Beispieldaten aus
-- Sende ab und beobachte die Daten im Node Output
+- Click "Test Form" or copy the Form URL
+- Fill out the form with sample data
+- Submit and observe the data in the Node Output
 
-### 5. AI Agent Node einrichten
+### 5. Set Up AI Agent Node
 
-- Füge einen **AI Agent** Node hinzu
-- Wähle ein AI Model 
-- **System Prompt** (im Agent):
+- Add an **AI Agent** Node
+- Choose an AI Model
+- **System Prompt** (in the Agent):
   ```
-  Du bist ein erfahrener HR-Spezialist, der Bewerbungen professionell bewertet.
+  You are an experienced HR specialist who professionally evaluates applications.
   
-  Analysiere die Bewerbung sorgfältig und erstelle eine strukturierte Bewertung.
-  Sei objektiv, fair und konstruktiv.
+  Analyze the application carefully and create a structured evaluation.
+  Be objective, fair, and constructive.
   ```
 
-### 6. Google Sheet vorbereiten
+### 6. Prepare Google Sheet
 
-Erstelle ein Google Sheet mit folgenden Spalten:
+Create a Google Sheet with the following columns:
 - Timestamp
 - Name
 - Email
 - Position
-- Berufserfahrung
-- Gesamtbewertung
-- Empfehlung
-- Zusammenfassung
-- Stärken
-- Schwächen
-- Erfahrung (1-10)
+- Work Experience
+- Overall Rating
+- Recommendation
+- Summary
+- Strengths
+- Weaknesses
+- Experience (1-10)
 - Motivation (1-10)
 - Skills (1-10)
 
-### 7. Google Sheets Node konfigurieren
+### 7. Configure Google Sheets Node
 
-- Füge einen **Google Sheets** Node hinzu
+- Add a **Google Sheets** Node
 - Operation: **Append Row**
-- Wähle dein Google Sheet aus
-- Mappe die Felder
+- Select your Google Sheet
+- Map the fields
 
-### 8. Workflow testen
+### 8. Test Workflow
 
-- Aktiviere den Workflow
-- Fülle das Formular mehrmals mit unterschiedlichen Bewerbungsprofilen aus:
-  - Eine starke Bewerbung
-  - Eine schwache Bewerbung
-  - Eine durchschnittliche Bewerbung
-- Prüfe das Google Sheet auf vollständige Bewertungen
-- Validiere, ob der AI Agent konsistent und fair bewertet
+- Activate the workflow
+- Fill out the form multiple times with different applicant profiles:
+  - A strong application
+  - A weak application
+  - An average application
+- Check the Google Sheet for complete evaluations
+- Validate whether the AI Agent evaluates consistently and fairly
 
 ## Learning Objectives
 
-- ✓ Komplexe Formulare mit n8n Form erstellen
-- ✓ AI Agent mit Tools für strukturierte Outputs nutzen
-- ✓ Tool Schemas mit JSON Schema definieren
-- ✓ Automatisierte Bewertungssysteme aufbauen
-- ✓ Multi-dimensionale Analysen durchführen
-- ✓ Google Sheets als Datenbank verwenden
+- ✓ Create complex forms with n8n Form
+- ✓ Use AI Agent with tools for structured outputs
+- ✓ Define tool schemas with JSON Schema
+- ✓ Build automated evaluation systems
+- ✓ Perform multi-dimensional analyses
+- ✓ Use Google Sheets as a database
 
 ## Success Criteria
 
-- [ ] Bewerbungsformular mit allen Feldern erstellt
-- [ ] AI Agent mit save_evaluation Tool konfiguriert
-- [ ] Bewertungen werden strukturiert ausgegeben
-- [ ] Empfehlungen (EINLADEN/ABLEHNEN/WARTELISTE) werden korrekt gesetzt
-- [ ] Alle Bewertungsdaten landen in Google Sheets
-- [ ] Workflow funktioniert End-to-End
+- [ ] Application form created with all fields
+- [ ] AI Agent configured with save_evaluation tool
+- [ ] Evaluations are output in a structured format
+- [ ] Recommendations (INVITE/REJECT/WAITLIST) are set correctly
+- [ ] All evaluation data ends up in Google Sheets
+- [ ] Workflow runs end-to-end

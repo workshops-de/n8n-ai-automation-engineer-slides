@@ -1,100 +1,100 @@
 # Trainer Hints
 
-## Wichtige Punkte für die Durchführung
+## Key Points for Delivery
 
-### Vorbereitung
+### Preparation
 
-1. **Email Setup vorab klären**: Viele Teilnehmer haben Probleme mit SMTP Credentials
-   - Gmail App-Passwords Anleitung bereithalten
-   - Alternative: Outlook, oder n8n's eigenen Email Service zeigen
-2. **Test-Email Adressen**: Empfehle Teilnehmern, an sich selbst zu senden
-3. **AI Model Access**: Sicherstellen, dass alle Zugriff auf ein AI Model haben
+1. **Clarify Email Setup in advance**: Many participants have problems with SMTP credentials
+   - Have Gmail App-Passwords guide ready
+   - Alternative: Show Outlook, or n8n's own Email Service
+2. **Test Email Addresses**: Recommend participants send to themselves
+3. **AI Model Access**: Ensure all participants have access to an AI Model
 
-### Häufige Stolpersteine
+### Common Pitfalls
 
-#### 1. SMTP Authentifizierung
+#### 1. SMTP Authentication
 
-Die meisten Probleme entstehen hier:
-- **Gmail**: Benötigt App-Password, nicht normales Passwort
-- **Outlook/Office365**: Manchmal spezielle Auth-Settings
-- **Firmen-Email**: Oft blockiert/eingeschränkt
+Most problems arise here:
+- **Gmail**: Requires App-Password, not regular password
+- **Outlook/Office365**: Sometimes special Auth-Settings required
+- **Company Email**: Often blocked/restricted
 
-**Lösung**: Zeige Gmail App-Password Setup live, oder nutze einen Test-SMTP Service wie Mailtrap oder Ethereal Email
+**Solution**: Show Gmail App-Password Setup live, or use a test SMTP service like Mailtrap or Ethereal Email
 
-#### 2. AI Agent Output Struktur
+#### 2. AI Agent Output Structure
 
-Je nach gewähltem Model ist der Output unterschiedlich:
-- GPT Models: Oft `output` oder `text`
-- Claude: Meist `text` oder `content`
-- **Wichtig**: Teilnehmer müssen den Output inspizieren!
+Depending on the chosen model, the output varies:
+- GPT Models: Often `output` or `text`
+- Claude: Usually `text` or `content`
+- **Important**: Participants must inspect the output!
 
-**Tipp**: Zeige live, wie man den Node Output inspiziert und die richtige Property findet
+**Tip**: Show live how to inspect the Node Output and find the correct property
 
 #### 3. Form → AI → Email Mapping
 
-Teilnehmer verwechseln oft:
-- Welcher Node welche Daten hat
-- Korrekte Referenzierung: `$('NodeName').item.json.field`
-- Case-Sensitivity bei Node-Namen
+Participants often confuse:
+- Which Node has which data
+- Correct referencing: `$('NodeName').item.json.field`
+- Case-sensitivity in Node names
 
-### Zeitmanagement
+### Time Management
 
 - **5 Min**: Form Setup
-- **10 Min**: AI Agent konfigurieren und testen
-- **10 Min**: Email Node Setup und Troubleshooting
+- **10 Min**: Configure and test AI Agent
+- **10 Min**: Email Node Setup and Troubleshooting
 
-### Demo-Tipps
+### Demo Tips
 
-Zeige live:
-1. Wie man ein n8n Form erstellt (sehr schnell!)
-2. Wie man den AI Agent Output inspiziert
-3. Wie man die Felder richtig mappt
-4. Eine Test-Email von Anfang bis Ende
+Show live:
+1. How to create an n8n Form (very quick!)
+2. How to inspect the AI Agent output
+3. How to map fields correctly
+4. A test email from start to finish
 
-### Erweiterte Diskussionspunkte
+### Advanced Discussion Points
 
-Nach der Übung:
+After the exercise:
 
-1. **Email-Zustellbarkeit**
+1. **Email Deliverability**
    - SPF, DKIM, DMARC Records
-   - Warum landen Emails im Spam?
+   - Why do emails end up in spam?
    - Production-Ready Email Services (SendGrid, AWS SES)
 
-2. **Personalisierung**
-   - Wie weit sollte Personalisierung gehen?
-   - Risiken von AI-generierten Emails (Halluzinationen, Tone)
-   - A/B Testing für Email-Varianten
+2. **Personalization**
+   - How far should personalization go?
+   - Risks of AI-generated emails (hallucinations, tone)
+   - A/B Testing for email variants
 
-3. **Skalierung**
-   - Was bei 10.000 Sign-ups pro Tag?
-   - Rate Limits von AI APIs
-   - Queue-Systeme für Email-Versand
+3. **Scaling**
+   - What about 10,000 sign-ups per day?
+   - Rate limits of AI APIs
+   - Queue systems for email delivery
 
-4. **Datenschutz**
-   - Email-Adressen sind personenbezogene Daten
-   - Opt-in/Opt-out Mechanismen
-   - DSGVO-konforme Email-Speicherung
+4. **Data Privacy**
+   - Email addresses are personal data
+   - Opt-in/Opt-out mechanisms
+   - GDPR-compliant email storage
 
-### Bonus Challenges (wenn Zeit bleibt)
+### Bonus Challenges (if time allows)
 
-1. **Multi-Language Support**: Form-Feld für Sprache, AI generiert in gewählter Sprache
-2. **Emoji-Personalisierung**: AI fügt passende Emojis basierend auf Namen/Stimmung ein
-3. **HTML Email**: Nutze HTML statt Plain Text für styled Emails
-4. **Welcome-Serie**: Nicht nur eine Email, sondern eine Serie mit Delays
+1. **Multi-Language Support**: Form field for language, AI generates in selected language
+2. **Emoji Personalization**: AI adds fitting emojis based on name/mood
+3. **HTML Email**: Use HTML instead of Plain Text for styled emails
+4. **Welcome Series**: Not just one email, but a series with delays
 
-### Troubleshooting Checkliste
+### Troubleshooting Checklist
 
-- [ ] Sind SMTP Credentials korrekt?
-- [ ] Ist der AI Agent mit einem Model verbunden?
-- [ ] Wurde der AI Agent testweise ausgeführt?
-- [ ] Ist der Output des AI Agents korrekt gemappt?
-- [ ] Sind alle Node-Referenzen korrekt geschrieben?
-- [ ] Ist der Workflow aktiviert?
-- [ ] Wurde das Formular ausgefüllt und abgesendet?
+- [ ] Are SMTP credentials correct?
+- [ ] Is the AI Agent connected to a model?
+- [ ] Was the AI Agent executed as a test?
+- [ ] Is the output of the AI Agent correctly mapped?
+- [ ] Are all node references written correctly?
+- [ ] Is the workflow activated?
+- [ ] Was the form filled out and submitted?
 
 ### Alternative: Email-less Testing
 
-Falls Email-Setup zu problematisch ist:
-- Zeige den generierten Email-Text nur im Workflow Output
-- Oder schreibe ihn in eine Google Sheets Spalte
-- Fokus auf AI-Personalisierung statt Email-Technik
+If email setup is too problematic:
+- Show the generated email text only in the workflow output
+- Or write it to a Google Sheets column
+- Focus on AI personalization instead of email technology

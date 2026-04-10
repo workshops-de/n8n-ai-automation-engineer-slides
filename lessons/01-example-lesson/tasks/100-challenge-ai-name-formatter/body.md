@@ -2,67 +2,67 @@
 
 ## Goal
 
-Erstelle einen interaktiven Chat-Bot, der Namen entgegennimmt, kreative Nicknames generiert und diese automatisch in Google Sheets speichert.
+Create an interactive chat bot that accepts names, generates creative nicknames, and automatically saves them in Google Sheets.
 
-## Was Du lernen wirst
+## What You'll Learn
 
-- Chat Trigger für interaktive Workflows
-- AI Agent für kreative Textgenerierung
-- Tools im AI Agent definieren
-- Direkte Integration mit Google Sheets
-- Strukturierte Datenausgabe
+- Chat Trigger for interactive workflows
+- AI Agent for creative text generation
+- Define tools in the AI Agent
+- Direct integration with Google Sheets
+- Structured data output
 
-## Workflow Übersicht
+## Workflow Overview
 
 **Chat Trigger** → **AI Agent** → **Google Sheets**
 
-## Schritt-für-Schritt Anleitung
+## Step-by-Step Guide
 
-### 1. Chat Trigger einrichten
+### 1. Set Up Chat Trigger
 
-- Füge einen **Chat Trigger** Node hinzu
-- Konfiguriere den Chat:
-  - **Initial Message**: "Hallo! Ich bin dein Nickname-Generator. Gib mir einen Namen und ich erstelle einen kreativen Spitznamen dafür! 😄"
-  - **Waiting Message**: "Lass mich nachdenken..."
-- Stelle den Chat Public und kopiere dir die Chat URL zum Testen
+- Add a **Chat Trigger** Node
+- Configure the chat:
+  - **Initial Message**: "Hello! I'm your Nickname Generator. Give me a name and I'll create a creative nickname for it! 😄"
+  - **Waiting Message**: "Let me think..."
+- Make the chat public and copy the Chat URL for testing
 
-### 2. Google Sheet vorbereiten
+### 2. Prepare Google Sheet
 
-Erstelle ein Google Sheet mit folgenden Spalten:
-- **Timestamp** - Wann wurde der Nickname erstellt
-- **Original Name** - Der eingegebene Name
-- **Nickname** - Der generierte Spitzname
-- **Chat Session** - Optional: Session-ID
+Create a Google Sheet with the following columns:
+- **Timestamp** - When was the nickname created
+- **Original Name** - The entered name
+- **Nickname** - The generated nickname
+- **Chat Session** - Optional: Session ID
 
-### 3. AI Agent mit Tool einrichten
+### 3. Set Up AI Agent with Tool
 
-- Füge einen **AI Agent** Node hinzu
-- Wähle ein AI Model (z.B. GPT-4 oder Claude)
-- System Prompt definieren
+- Add an **AI Agent** Node
+- Choose an AI Model (e.g., GPT-4 or Claude)
+- Define System Prompt
 
 
-### 4. Google Sheets Node konfigurieren
+### 4. Configure Google Sheets Node
 
-- Füge einen **Google Sheets** Tool hinzu
+- Add a **Google Sheets** Tool
 - Operation: **Append Row**
-- Wähle dein vorbereitetes Google Sheet
-- Mappe die Felder
+- Select your prepared Google Sheet
+- Map the fields
 
 ## Learning Objectives
 
-- ✓ Chat Trigger für interaktive Workflows nutzen
-- ✓ AI Agent mit Tools einsetzen
-- ✓ Tool Schemas mit JSON Schema definieren
-- ✓ Kreative AI-Anwendungen bauen
-- ✓ Direkte Datenbank-Integration mit Google Sheets
-- ✓ Strukturierte Ausgaben erzwingen
+- ✓ Use Chat Trigger for interactive workflows
+- ✓ Use AI Agent with tools
+- ✓ Define tool schemas with JSON Schema
+- ✓ Build creative AI applications
+- ✓ Direct database integration with Google Sheets
+- ✓ Enforce structured outputs
 
 ## Success Criteria
 
-- [ ] Chat Trigger ist aktiv und erreichbar
-- [ ] AI Agent generiert kreative Nicknames
-- [ ] Jeder Nickname ist einzigartig
-- [ ] Tool save_nickname funktioniert korrekt
-- [ ] Daten werden in Google Sheets gespeichert
-- [ ] Chat antwortet freundlich und interaktiv
-- [ ] Mehrere Namen können nacheinander eingegeben werden
+- [ ] Chat Trigger is active and reachable
+- [ ] AI Agent generates creative nicknames
+- [ ] Each nickname is unique
+- [ ] Tool save_nickname works correctly
+- [ ] Data is saved in Google Sheets
+- [ ] Chat responds in a friendly and interactive way
+- [ ] Multiple names can be entered consecutively

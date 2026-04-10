@@ -1,121 +1,121 @@
 # Bonus Challenges
 
-## 1. Twitter Integration - Automatisches Posten
+## 1. Twitter Integration - Automatic Posting
 
-Erweitere den Workflow um automatisches Posten auf Twitter:
+Extend the workflow with automatic posting on Twitter:
 
-**Twitter Tool hinzufügen:**
+**Add Twitter Tool:**
 - Node: Twitter
 - Operation: Create Tweet
-- Platzierung: Nach Google Docs Erstellung
+- Placement: After Google Docs creation
 
-**Workflow-Erweiterung:**
-1. Agent erstellt Post (wie bisher)
-2. Agent speichert als Google Doc (wie bisher)
-3. **NEU: Agent postet auf Twitter** (wenn Platform = "Twitter" oder "Both")
-4. Agent updated Sheet mit Status="Posted" + Twitter URL
+**Workflow Extension:**
+1. Agent creates post (as before)
+2. Agent saves as Google Doc (as before)
+3. **NEW: Agent posts on Twitter** (if Platform = "Twitter" or "Both")
+4. Agent updates sheet with Status="Posted" + Twitter URL
 
-**System Prompt anpassen:**
-- "WENN Platform ist Twitter oder Both: Nutze Twitter Tool zum Posten"
-- "Speichere die Tweet URL im Sheet"
+**Adapt System Prompt:**
+- "IF Platform is Twitter or Both: Use Twitter Tool to post"
+- "Save the Tweet URL in the sheet"
 
-**Hinweis:** Twitter API Zugang erforderlich. Setup kann komplex sein und Kosten verursachen.
+**Note:** Twitter API access required. Setup can be complex and incur costs.
 
-## 2. LinkedIn Integration - Automatisches Posten
+## 2. LinkedIn Integration - Automatic Posting
 
-Erweitere den Workflow um automatisches Posten auf LinkedIn:
+Extend the workflow with automatic posting on LinkedIn:
 
-**LinkedIn Tool hinzufügen:**
+**Add LinkedIn Tool:**
 - Node: LinkedIn
 - Operation: Create Post
-- Platzierung: Nach Google Docs Erstellung
+- Placement: After Google Docs creation
 
-**Workflow-Erweiterung:**
-1. Agent erstellt Post (wie bisher)
-2. Agent speichert als Google Doc (wie bisher)
-3. **NEU: Agent postet auf LinkedIn** (wenn Platform = "LinkedIn" oder "Both")
-4. Agent updated Sheet mit Status="Posted" + LinkedIn URL
+**Workflow Extension:**
+1. Agent creates post (as before)
+2. Agent saves as Google Doc (as before)
+3. **NEW: Agent posts on LinkedIn** (if Platform = "LinkedIn" or "Both")
+4. Agent updates sheet with Status="Posted" + LinkedIn URL
 
-**System Prompt anpassen:**
-- "WENN Platform ist LinkedIn oder Both: Nutze LinkedIn Tool zum Posten"
-- "Speichere die Post URL im Sheet"
+**Adapt System Prompt:**
+- "IF Platform is LinkedIn or Both: Use LinkedIn Tool to post"
+- "Save the Post URL in the sheet"
 
-**Hinweis:** LinkedIn API Zugang erforderlich. Beachte Rate Limits und API-Kosten.
+**Note:** LinkedIn API access required. Observe rate limits and API costs.
 
-## 3. Multi-Varianten-Generator
+## 3. Multi-Variant Generator
 
-Erweitere den AI Agent um eine Tool-Funktion, die 3 verschiedene Post-Varianten generiert:
-- Lass den Agent alle 3 Varianten erstellen
-- Implementiere eine Bewertungslogik im System Prompt
-- Der Agent wählt automatisch die beste Variante basierend auf:
-  - Länge (optimal für die Plattform)
-  - Engagement-Potenzial
-  - Hashtag-Qualität
+Extend the AI Agent with a tool function that generates 3 different post variants:
+- Have the agent create all 3 variants
+- Implement a scoring logic in the System Prompt
+- The agent automatically selects the best variant based on:
+  - Length (optimal for the platform)
+  - Engagement potential
+  - Hashtag quality
 
-## 4. Automatische Bild-Generierung
+## 4. Automatic Image Generation
 
-Füge ein DALL-E oder Stable Diffusion Tool zum Agent hinzu:
-- Der Agent generiert passende Bilder basierend auf dem Topic
-- Bilder werden automatisch mit dem Post hochgeladen
-- Tipp: Nutze das "Generate Image" Tool oder HTTP Request zu DALL-E API
+Add a DALL-E or Stable Diffusion Tool to the agent:
+- The agent generates suitable images based on the topic
+- Images are automatically uploaded with the post
+- Tip: Use the "Generate Image" Tool or HTTP Request to DALL-E API
 
-## 5. Content-Kalender mit Optimierung
+## 5. Content Calendar with Optimization
 
-Erweitere das Google Sheet um eine "Optimal Post Time" Spalte:
-- Der AI Agent analysiert die beste Posting-Zeit
-- Nutze ein zusätzliches Tool, um Analytics-Daten abzurufen
-- Agent entscheidet, wann der beste Zeitpunkt zum Posten ist
+Extend the Google Sheet with an "Optimal Post Time" column:
+- The AI Agent analyzes the best posting time
+- Use an additional tool to retrieve analytics data
+- Agent decides when the best time to post is
 
-## 6. Multi-Platform-Strategie
+## 6. Multi-Platform Strategy
 
-Erweitere den Workflow für mehrere Plattformen gleichzeitig:
-- Agent erstellt plattformspezifische Versionen:
-  - Twitter: Kurz & prägnant (280 Zeichen)
-  - LinkedIn: Professionell & ausführlich (300 Zeichen)
-  - Instagram: Visual-fokussiert mit Story-Elementen
-- Alle Posts werden aus einem Topic generiert
-- Agent postet auf allen relevanten Plattformen basierend auf der "Platform" Spalte
+Extend the workflow for multiple platforms simultaneously:
+- Agent creates platform-specific versions:
+  - Twitter: Short & concise (280 characters)
+  - LinkedIn: Professional & detailed (300 characters)
+  - Instagram: Visual-focused with story elements
+- All posts are generated from one topic
+- Agent posts on all relevant platforms based on the "Platform" column
 
-## 7. Engagement-Tracking
+## 7. Engagement Tracking
 
-Füge ein Tool hinzu, das nach dem Posten:
-- Die Post-URL speichert
-- Nach 24h die Engagement-Metriken abruft (Likes, Shares, Comments)
-- Die Daten zurück ins Google Sheet schreibt
-- Der Agent kann aus diesen Daten lernen, welche Topics besser performen
+Add a tool that after posting:
+- Saves the post URL
+- Retrieves engagement metrics after 24h (Likes, Shares, Comments)
+- Writes the data back to Google Sheets
+- The agent can learn from this data which topics perform better
 
 ## 8. Human-in-the-Loop Approval
 
-Füge einen manuellen Approval-Schritt hinzu, bevor Posts veröffentlicht werden:
+Add a manual approval step before posts are published:
 
-**Gmail Send and Wait Tool hinzufügen:**
+**Add Gmail Send and Wait Tool:**
 - Node: Gmail
 - Operation: Send and Wait
-- Platzierung: ZWISCHEN Post-Generierung und Veröffentlichung
+- Placement: BETWEEN post generation and publication
 
-**Workflow-Ablauf:**
-1. Agent liest Topic aus Google Sheets
-2. Agent generiert den Post
-3. **Agent sendet Post zur Review per Email** (Gmail Send and Wait)
-4. **Workflow pausiert und wartet auf deine Entscheidung**
-5. Du erhältst Email mit:
-   - Generiertem Post-Text
-   - Topic und Plattform
-   - Approve/Reject Buttons
-6. Bei **Approve**: Agent postet und updated Sheet
-7. Bei **Reject**: Agent bricht ab ohne zu posten
+**Workflow:**
+1. Agent reads topic from Google Sheets
+2. Agent generates the post
+3. **Agent sends post for review via email** (Gmail Send and Wait)
+4. **Workflow pauses and waits for your decision**
+5. You receive email with:
+   - Generated post text
+   - Topic and platform
+   - Approve/Reject buttons
+6. On **Approve**: Agent posts and updates sheet
+7. On **Reject**: Agent aborts without posting
 
-**System Prompt anpassen:**
-Der Agent muss die neue Reihenfolge verstehen:
-- "Sende ZUERST per Gmail zur Review"
-- "WARTE auf Genehmigung"
-- "Poste NUR wenn Approved"
-- "Update Sheet NUR wenn Approved"
+**Adapt System Prompt:**
+The agent must understand the new order:
+- "Send FIRST via Gmail for review"
+- "WAIT for approval"
+- "Post ONLY if Approved"
+- "Update Sheet ONLY if Approved"
 
-**Vorteile:**
-- Qualitätskontrolle vor Veröffentlichung
-- Möglichkeit Posts abzulehnen
-- Lerneffekt: Siehe welche Posts der Agent erstellt
-- Sicherheit: Keine ungewollten Posts
+**Advantages:**
+- Quality control before publication
+- Ability to reject posts
+- Learning effect: See what posts the agent creates
+- Safety: No unwanted posts
 
-**Hinweis:** Gmail Tool funktioniert nur mit @gmail.com Adressen. Für andere Domains nutze SMTP Node.
+**Note:** Gmail Tool only works with @gmail.com addresses. For other domains use SMTP Node.

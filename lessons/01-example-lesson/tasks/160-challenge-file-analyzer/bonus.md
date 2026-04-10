@@ -1,8 +1,8 @@
-# Bonus Task: Multi-Format File Support mit Daten-Normalisierung
+# Bonus Task: Multi-Format File Support with Data Normalization
 
-## Ziel
+## Goal
 
-In der Hauptaufgabe extracten wir nur aus PDF-Dateien. In dieser Bonus-Challenge erweitern wir den Workflow, um verschiedene Dateitypen (PDF, CSV, JSON, TXT, etc.) zu unterstützen und eine **Daten-Normalisierung** zu implementieren.
+In the main task we only extract from PDF files. In this bonus challenge we extend the workflow to support different file types (PDF, CSV, JSON, TXT, etc.) and implement **data normalization**.
 
 **System Prompt** (erweitert):
 ```
@@ -45,7 +45,7 @@ Keep your response concise and actionable.
 - [ ] AI Agent adapts analysis to file type
 - [ ] Merge node combines all branches successfully
 
-## Zusätzliche Bonus-Ideen
+## Additional Bonus Ideas
 
 **Top 3 Highlighting**: Format the top 3 most important points in the response with emojis and special styling (🔥 for important, 📊 for statistics, etc.).
 

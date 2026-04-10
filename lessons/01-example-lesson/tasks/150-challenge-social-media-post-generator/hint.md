@@ -12,97 +12,97 @@ The Gmail Node only works with native Gmail addresses. For other email providers
 
 ---
 
-## System Prompt Beispiel
+## System Prompt Example
 
-Falls du Hilfe beim System Prompt brauchst, hier ist ein funktionierendes Beispiel:
+If you need help with the System Prompt, here is a working example:
 
 ```
-Du bist ein Social Media Content Creator, der Posts erstellt und als Dokumente speichert.
+You are a Social Media Content Creator who creates posts and saves them as documents.
 
-Du erhältst Topic und Platform aus einem Google Form Submission.
+You receive Topic and Platform from a Google Form submission.
 
-Deine Aufgabe:
-1. Analysiere das eingereichte Topic
-2. Erstelle einen passenden Post für die angegebene Plattform
-3. Speichere den Post als Google Doc
-4. Update die Zeile im Google Sheet mit Doc URL und Status
+Your task:
+1. Analyze the submitted topic
+2. Create a suitable post for the specified platform
+3. Save the post as a Google Doc
+4. Update the row in Google Sheets with Doc URL and Status
 
-Regeln für Twitter (max 280 Zeichen):
-- Kurz und prägnant
-- 1-2 relevante Hashtags
-- Hook oder Frage einbauen
+Rules for Twitter (max 280 characters):
+- Short and concise
+- 1-2 relevant hashtags
+- Include a hook or question
 
-Regeln für LinkedIn (max 300 Zeichen):
-- Professioneller Ton
-- Mehrwert oder Insight bieten
-- Relevante Hashtags
-- Call-to-Action
+Rules for LinkedIn (max 300 characters):
+- Professional tone
+- Provide value or insight
+- Relevant hashtags
+- Call-to-action
 
 Workflow:
-1. Generiere den Post basierend auf Topic und Platform
-2. Nutze Google Docs Tool: Titel = "[Platform] - [Topic] - [Date]"
-3. Nutze Google Sheets Update Tool (Status='Generated', Document URL, Generated Date)
+1. Generate the post based on Topic and Platform
+2. Use Google Docs Tool: Title = "[Platform] - [Topic] - [Date]"
+3. Use Google Sheets Update Tool (Status='Generated', Document URL, Generated Date)
 ```
 
-Du kannst diesen Prompt anpassen und verbessern! Experimentiere mit verschiedenen Formulierungen.
+You can customize and improve this prompt! Experiment with different formulations.
 
 ---
 
-## AI Agent mit mehreren Tools
+## AI Agent with Multiple Tools
 
-Der Schlüssel zu dieser Challenge ist die richtige Konfiguration des AI Agents mit Tools:
+The key to this challenge is the correct configuration of the AI Agent with tools:
 
-### Tool-Reihenfolge verstehen
+### Understanding Tool Order
 
-Der AI Agent entscheidet selbst, wann er welches Tool nutzt. Wichtig:
-1. **Input vom Trigger**: Agent erhält Topic und Platform direkt vom Google Sheets Trigger
-2. **Google Docs Tool**: Agent erstellt ein Dokument mit dem generierten Post
-3. **Google Sheets Update Tool**: Agent nutzt dies am Ende, um Status und Doc URL einzutragen
+The AI Agent decides itself when to use which tool. Important:
+1. **Input from Trigger**: Agent receives Topic and Platform directly from the Google Sheets Trigger
+2. **Google Docs Tool**: Agent creates a document with the generated post
+3. **Google Sheets Update Tool**: Agent uses this at the end to enter Status and Doc URL
 
-### System Prompt ist entscheidend
+### System Prompt is Crucial
 
-Dein System Prompt muss dem Agent klar sagen:
-- **Was** er tun soll (Topic lesen, Post erstellen, veröffentlichen, updaten)
-- **Wann** er welches Tool nutzen soll
-- **Wie** die Daten strukturiert sind
+Your System Prompt must clearly tell the agent:
+- **What** it should do (read topic, create post, publish, update)
+- **When** to use which tool
+- **How** the data is structured
 
-### Häufige Fehler
+### Common Errors
 
-**"Trigger feuert nicht"**
-- Prüfe ob der Workflow aktiviert ist
-- Teste mit einem Form-Submit
-- Schaue in die Execution History von n8n
-- Prüfe ob das richtige Sheet und Tab ausgewählt ist
+**"Trigger doesn't fire"**
+- Check if the workflow is activated
+- Test with a form submit
+- Look at the execution history in n8n
+- Check if the correct sheet and tab is selected
 
-**"Agent erhält keine Daten vom Trigger"**
-- Die Trigger-Daten sind in `$json` verfügbar
-- Beispiel: `{{ $json.Topic }}` und `{{ $json.Platform }}`
-- Prüfe im System Prompt ob du auf diese Daten verweist
+**"Agent doesn't receive data from trigger"**
+- The trigger data is available in `$json`
+- Example: `{{ $json.Topic }}` and `{{ $json.Platform }}`
+- Check in the System Prompt whether you reference this data
 
-**"Agent erstellt Doc, aber Updated das Sheet nicht"**
-- Der Agent muss wissen, **welche Zeile** er updaten soll
-- Tipp: Die Row ID kommt vom Trigger
-- System Prompt: Erwähne explizit, dass er das Sheet nach dem Doc erstellen updaten soll
-- Prüfe ob der Agent die Document URL aus dem Google Docs Tool bekommt
+**"Agent creates Doc, but doesn't update the Sheet"**
+- The agent must know **which row** to update
+- Tip: The Row ID comes from the trigger
+- System Prompt: Explicitly mention that it should update the sheet after creating the doc
+- Check if the agent gets the Document URL from the Google Docs Tool
 
-**"Google Doc wird erstellt aber ist leer"**
-- Prüfe ob der Agent den generierten Post-Text wirklich in das Doc schreibt
-- Tool Description muss klar sein: "Include the full post text in the document"
-- System Prompt: Betone dass der GESAMTE Post im Doc stehen soll
+**"Google Doc is created but empty"**
+- Check if the agent actually writes the generated post text to the doc
+- Tool Description must be clear: "Include the full post text in the document"
+- System Prompt: Emphasize that the COMPLETE post should be in the doc
 
-**"Posts sind zu lang/kurz"**
-- Verstärke die Character Limits im System Prompt
-- Beispiel: "Twitter: MAXIMAL 280 Zeichen! Kürze notfalls den Text."
+**"Posts are too long/short"**
+- Reinforce the character limits in the System Prompt
+- Example: "Twitter: MAXIMUM 280 characters! Shorten the text if necessary."
 
-### Testing Tipps
+### Testing Tips
 
-1. Aktiviere den Workflow
-2. Fülle das Google Form aus mit einem einfachen Test-Topic
-3. Prüfe die n8n Execution History - wurde der Workflow getriggert?
-4. Schaue dir die AI Agent Logs an, um zu sehen welche Tools er nutzt
-5. Prüfe nach jedem Run, ob die Zeile im Sheet updated wurde
+1. Activate the workflow
+2. Fill out the Google Form with a simple test topic
+3. Check the n8n Execution History - was the workflow triggered?
+4. Look at the AI Agent logs to see which tools it uses
+5. After each run, check whether the row in the sheet was updated
 
-### Tool Descriptions Beispiele
+### Tool Description Examples
 
 **Google Docs Tool:**
 ```
@@ -116,38 +116,38 @@ Update the Google Sheet row that triggered this workflow. Set: Status='Generated
 
 ## Debugging
 
-Wenn der Workflow nicht funktioniert:
-1. Öffne die AI Agent Execution Logs
-2. Schaue welche Tools der Agent tatsächlich aufgerufen hat
-3. Prüfe die Tool-Responses: Kommen Daten zurück?
-4. Verfeinere den System Prompt basierend auf dem Agent-Verhalten
+If the workflow doesn't work:
+1. Open the AI Agent Execution Logs
+2. See which tools the agent actually called
+3. Check the tool responses: Is data coming back?
+4. Refine the System Prompt based on the agent behavior
 
 ---
 
 ## Bonus: Human-in-the-Loop Hints
 
-Falls du die Human Review Bonus-Challenge machst:
+If you're doing the Human Review Bonus Challenge:
 
-### System Prompt Beispiel mit Human Review
+### System Prompt Example with Human Review
 
 ```
-Du bist ein Social Media Expert, der Posts erstellt und zur Genehmigung vorlegt.
+You are a Social Media Expert who creates posts and submits them for approval.
 
-Deine Aufgabe:
-1. Hole ungepostete Topics aus Google Sheets
-2. Erstelle einen passenden Post für die angegebene Plattform
-3. Sende den Post per Email zur Human Review (Gmail Send and Wait Tool)
-4. Warte auf Genehmigung (Approve/Reject)
-5. WENN APPROVED: Veröffentliche den Post auf der richtigen Plattform
-6. WENN APPROVED: Markiere das Topic in Google Sheets als "Posted"
-7. WENN REJECTED: Breche ab ohne zu posten
+Your task:
+1. Fetch unposted topics from Google Sheets
+2. Create a suitable post for the specified platform
+3. Send the post via email for human review (Gmail Send and Wait Tool)
+4. Wait for approval (Approve/Reject)
+5. IF APPROVED: Publish the post on the correct platform
+6. IF APPROVED: Mark the topic in Google Sheets as "Posted"
+7. IF REJECTED: Abort without posting
 
-WICHTIG: Workflow-Reihenfolge
+IMPORTANT: Workflow order
 1. Google Sheets Read Tool
-2. Generiere Post Content
-3. Gmail Send and Wait Tool (WARTE auf Antwort!)
-4. NUR bei Approval: Twitter/LinkedIn Tool
-5. NUR bei Approval: Google Sheets Update Tool
+2. Generate Post Content
+3. Gmail Send and Wait Tool (WAIT for response!)
+4. ONLY on Approval: Twitter/LinkedIn Tool
+5. ONLY on Approval: Google Sheets Update Tool
 ```
 
 ### Tool Description: Gmail Send and Wait
@@ -156,15 +156,15 @@ WICHTIG: Workflow-Reihenfolge
 Send an email for human review and WAIT for approval/rejection. Include the generated post text, topic name, and target platform. The workflow will pause until the recipient clicks Approve or Reject in the email.
 ```
 
-### Häufige Fehler bei Human Review
+### Common Errors with Human Review
 
-**"Agent postet ohne auf Approval zu warten"**
-- Prüfe die Tool Descriptions: Sind Twitter/LinkedIn Tools klar als "ONLY after approval" markiert?
-- System Prompt: Betone die Reihenfolge mit GROSSBUCHSTABEN
-- Tipp: Nutze Wörter wie "WARTE", "NUR WENN APPROVED"
+**"Agent posts without waiting for approval"**
+- Check tool descriptions: Are Twitter/LinkedIn tools clearly marked as "ONLY after approval"?
+- System Prompt: Emphasize the order in CAPITAL LETTERS
+- Tip: Use words like "WAIT", "ONLY IF APPROVED"
 
-**"Gmail Send and Wait funktioniert nicht"**
-- Gmail OAuth2 muss korrekt verbunden sein
-- Email-Adresse muss @gmail.com sein (nicht @hotmail, @gmx, etc.)
-- Approve/Reject Options müssen im Node konfiguriert sein
-- Der Agent muss explizit wissen, dass er auf die Antwort warten soll
+**"Gmail Send and Wait doesn't work"**
+- Gmail OAuth2 must be correctly connected
+- Email address must be @gmail.com (not @hotmail, @gmx, etc.)
+- Approve/Reject options must be configured in the Node
+- The agent must explicitly know that it should wait for the response

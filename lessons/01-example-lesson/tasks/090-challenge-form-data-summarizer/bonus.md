@@ -1,64 +1,64 @@
 # Bonus Challenges
 
-## 1. Automatische Absage/Einladungs-Email
+## 1. Automatic Rejection/Invitation Email
 
-Erweitere den Workflow um einen Email-Node, der automatisch:
-- Bei **EINLADEN**: Eine Einladung zum Vorstellungsgespräch sendet
-- Bei **ABLEHNEN**: Eine höfliche Absage mit konstruktivem Feedback sendet
-- Bei **WARTELISTE**: Eine Info-Mail sendet, dass die Bewerbung gespeichert wurde
+Extend the workflow with an Email Node that automatically:
+- For **INVITE**: Sends an invitation to an interview
+- For **REJECT**: Sends a polite rejection with constructive feedback
+- For **WAITLIST**: Sends an informational email that the application has been saved
 
-Verwende personalisierte Emails mit den Daten aus der AI-Bewertung.
+Use personalized emails with data from the AI evaluation.
 
-## 2. Multi-Stufen Bewertung
+## 2. Multi-Stage Evaluation
 
-Implementiere ein zweistufiges Bewertungssystem:
-- **Stufe 1**: Schnelle automatische Vorauswahl (aktueller AI Agent)
-- **Stufe 2**: Nur Top-Bewerbungen (Score ≥ 8) werden an einen zweiten, detaillierteren AI Agent weitergeleitet
+Implement a two-stage evaluation system:
+- **Stage 1**: Quick automatic pre-selection (current AI Agent)
+- **Stage 2**: Only top applications (Score ≥ 8) are forwarded to a second, more detailed AI Agent
 
-Der zweite Agent könnte:
-- Tiefergehende Fragen zur Motivation stellen
-- Spezifische Technical Skills bewerten
-- Cultural Fit analysieren
+The second agent could:
+- Ask more in-depth questions about motivation
+- Evaluate specific technical skills
+- Analyze cultural fit
 
-## 3. Ranking und Dashboard
+## 3. Ranking and Dashboard
 
-- Erstelle ein zweites Google Sheet Tab "Rankings"
-- Sortiere alle Bewerber automatisch nach Score
-- Füge Conditional Formatting hinzu:
-  - Grün für Score ≥ 8
-  - Gelb für Score 6-7
-  - Rot für Score < 6
+- Create a second Google Sheet tab "Rankings"
+- Automatically sort all applicants by score
+- Add conditional formatting:
+  - Green for Score ≥ 8
+  - Yellow for Score 6-7
+  - Red for Score < 6
 
-## 4. Interview-Fragen Generator
+## 4. Interview Questions Generator
 
-Lass den AI Agent zusätzlich 3-5 personalisierte Interview-Fragen generieren basierend auf:
-- Den angegebenen Skills
-- Lücken im Lebenslauf
-- Der gewünschten Position
+Have the AI Agent additionally generate 3-5 personalized interview questions based on:
+- The listed skills
+- Gaps in the resume
+- The desired position
 
-Speichere diese Fragen in einer separaten Spalte im Google Sheet.
+Save these questions in a separate column in Google Sheets.
 
-## 5. Anonymisierte Bewertung
+## 5. Anonymized Evaluation
 
-Entferne Name, Email und andere persönliche Daten vor der AI-Bewertung um Bias zu vermeiden:
-- Füge einen Code-Node vor dem AI Agent hinzu
-- Ersetze Namen durch "Bewerber #123"
-- Speichere die Zuordnung in einem separaten Sheet
-- Erst nach der Bewertung werden die echten Daten wieder zusammengeführt
+Remove name, email, and other personal data before the AI evaluation to avoid bias:
+- Add a Code Node before the AI Agent
+- Replace names with "Applicant #123"
+- Store the mapping in a separate sheet
+- Only after the evaluation are the real data merged back
 
 ## 6. Human Review Integration
 
-Nutze den "Wait for approval" Node von n8n für eine manuelle Überprüfung:
-- Nach der AI-Bewertung wird der Workflow pausiert
-- Integriere verschiedene Review-Kanäle:
-  - **Gmail**: Sende eine Email mit der Bewerbungszusammenfassung und Approve/Reject Links
-  - **Google Chat**: Poste die Bewertung in einen Review-Channel mit Interaktions-Buttons
-  - **Slack**: Alternative für Teams, die Slack nutzen
+Use n8n's "Wait for approval" Node for a manual review:
+- After the AI evaluation the workflow pauses
+- Integrate different review channels:
+  - **Gmail**: Send an email with the application summary and Approve/Reject links
+  - **Google Chat**: Post the evaluation in a review channel with interaction buttons
+  - **Slack**: Alternative for teams using Slack
 
-**Inhalt der Review-Nachricht:**
-- Vollständige Bewerbungszusammenfassung
-- AI-Bewertung mit Score und Begründung
-- Empfehlung (EINLADEN/ABLEHNEN/WARTELISTE)
-- Buttons/Links zur finalen Entscheidung
+**Review Message Content:**
+- Full application summary
+- AI evaluation with score and reasoning
+- Recommendation (INVITE/REJECT/WAITLIST)
+- Buttons/links for the final decision
 
-Nach der manuellen Entscheidung wird der Workflow fortgesetzt und die finale Aktion (z.B. Email an Bewerber) ausgeführt.
+After the manual decision, the workflow continues and the final action (e.g., email to applicant) is executed.

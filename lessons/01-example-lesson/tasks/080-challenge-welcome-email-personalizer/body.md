@@ -2,105 +2,105 @@
 
 ## Goal
 
-Erstelle ein einfaches Anmeldeformular mit n8n Form, das einen Namen entgegennimmt und automatisch eine personalisierte Willkommens-Email mit Hilfe eines AI Agents generiert und versendet.
+Create a simple registration form with n8n Form that accepts a name and automatically generates and sends a personalized welcome email using an AI Agent.
 
-## Was Du lernen wirst
+## What You'll Learn
 
-- n8n Form für Datenerfassung verwenden
-- AI Agent für personalisierte Texte einsetzen
-- AI Output an Email Nodes weitergeben
-- Dynamische Personalisierung implementieren
+- Use n8n Form for data collection
+- Use AI Agent for personalized text generation
+- Pass AI output to Email Nodes
+- Implement dynamic personalization
 
-## Workflow Übersicht
+## Workflow Overview
 
 **n8n Form Trigger** → **AI Agent** → **Email**
 
-## Schritt-für-Schritt Anleitung
+## Step-by-Step Guide
 
-### 1. n8n Form Trigger erstellen
+### 1. Create n8n Form Trigger
 
-- Füge einen **n8n Form Trigger** Node hinzu
-- Dies erstellt automatisch ein schönes, nutzbares Formular
+- Add an **n8n Form Trigger** Node
+- This automatically creates a beautiful, usable form
 
-### 2. Formularfelder konfigurieren
+### 2. Configure Form Fields
 
-Füge im n8n Form Trigger folgende Felder hinzu:
+Add the following fields in the n8n Form Trigger:
 
-- **Feld 1: Name**
+- **Field 1: Name**
   - Type: Text
-  - Label: "Dein Name"
+  - Label: "Your Name"
   - Required: Yes
-  - Placeholder: "Max Mustermann"
+  - Placeholder: "John Doe"
 
-- **Feld 2: Email**
+- **Field 2: Email**
   - Type: Email
-  - Label: "Deine E-Mail-Adresse"
+  - Label: "Your Email Address"
   - Required: Yes
-  - Placeholder: "max@beispiel.de"
+  - Placeholder: "john@example.com"
 
-### 3. Formular anpassen
+### 3. Customize Form
 
-- **Form Title**: "Willkommen! Melde dich an"
-- **Form Description**: "Trage deinen Namen ein und erhalte eine personalisierte Willkommens-Email"
-- **Submit Button Text**: "Anmelden"
-- **Completion Message**: "Danke! Du erhältst gleich eine Email von uns."
+- **Form Title**: "Welcome! Sign up"
+- **Form Description**: "Enter your name and receive a personalized welcome email"
+- **Submit Button Text**: "Sign Up"
+- **Completion Message**: "Thank you! You'll receive an email from us shortly."
 
-### 4. Formular testen
+### 4. Test Form
 
-- Klicke auf "Test Form" oder kopiere die Form URL
-- Fülle das Formular mit einem Testnamen aus
-- Sende ab und beobachte die Daten im Node Output
+- Click "Test Form" or copy the Form URL
+- Fill out the form with a test name
+- Submit and observe the data in the Node Output
 
-### 5. AI Agent für Email-Generierung
+### 5. AI Agent for Email Generation
 
-- Füge einen **AI Agent** Node hinzu
-- Wähle ein AI Model (z.B. GPT-4 oder Claude)
+- Add an **AI Agent** Node
+- Choose an AI Model (e.g., GPT-4 or Claude)
 - **System Prompt**:
   ```
-  Du bist ein freundlicher Onboarding-Assistent, der personalisierte Willkommens-Emails schreibt.
+  You are a friendly onboarding assistant who writes personalized welcome emails.
   
-  Erstelle eine warme, einladende Willkommens-Email die:
-  1. Den Nutzer persönlich beim Namen begrüßt
-  2. Ihn auf der Plattform willkommen heißt
-  3. Einen motivierenden, freundlichen Ton hat
-  4. Eine kreative, überraschende Botschaft enthält (z.B. ein inspirierendes Zitat, einen Witz, oder einen Fun Fact)
-  5. Kurz und prägnant ist (max. 150 Wörter)
+  Create a warm, inviting welcome email that:
+  1. Greets the user personally by name
+  2. Welcomes them to the platform
+  3. Has a motivating, friendly tone
+  4. Contains a creative, surprising message (e.g., an inspiring quote, a joke, or a fun fact)
+  5. Is brief and concise (max. 150 words)
   
-  Gib nur den Email-Text aus, keine Betreffzeile.
+  Output only the email body text, no subject line.
   ```
 
 - **User Prompt**:
   ```
-  Neuer Nutzer hat sich angemeldet:
+  New user has signed up:
   Name: {{ $json.name }}
   
-  Erstelle eine personalisierte Willkommens-Email.
+  Create a personalized welcome email.
   ```
 
-### 6. Email Node konfigurieren
+### 6. Configure Email Node
 
-- Füge einen **Gmail: Send Email** Node hinzu und konfiguriere diese
+- Add a **Gmail: Send Email** Node and configure it
 
-### 7. Workflow testen
+### 7. Test Workflow
 
-- Aktiviere den Workflow
-- Fülle das Formular mehrmals mit verschiedenen Namen aus
-- Prüfe die generierten Emails
-- Validiere, dass jede Email personalisiert und einzigartig ist
+- Activate the workflow
+- Fill out the form multiple times with different names
+- Check the generated emails
+- Validate that each email is personalized and unique
 
 ## Learning Objectives
 
-- ✓ n8n Forms für Datenerfassung nutzen
-- ✓ AI Agent für personalisierte Content-Generierung einsetzen
-- ✓ Dynamische Daten zwischen Nodes weitergeben
-- ✓ Email-Automationen implementieren
-- ✓ AI Output richtig mappen und verwenden
+- ✓ Use n8n Forms for data collection
+- ✓ Use AI Agent for personalized content generation
+- ✓ Pass dynamic data between Nodes
+- ✓ Implement email automations
+- ✓ Correctly map and use AI output
 
 ## Success Criteria
 
-- [ ] n8n Form ist erstellt und funktioniert
-- [ ] Form nimmt Name und Email entgegen
-- [ ] AI Agent generiert personalisierte Willkommens-Emails
-- [ ] Jede Email ist einzigartig und enthält den Namen
-- [ ] Email wird erfolgreich versendet
-- [ ] Workflow läuft End-to-End automatisch
+- [ ] n8n Form is created and working
+- [ ] Form accepts name and email
+- [ ] AI Agent generates personalized welcome emails
+- [ ] Each email is unique and contains the name
+- [ ] Email is successfully sent
+- [ ] Workflow runs end-to-end automatically

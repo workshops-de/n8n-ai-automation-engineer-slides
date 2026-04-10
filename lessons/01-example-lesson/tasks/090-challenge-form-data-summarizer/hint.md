@@ -12,49 +12,49 @@ The Gmail Node only works with native Gmail addresses. For other email providers
 
 ---
 
-## Stuck? Hier sind einige Tipps:
+## Stuck? Here are some tips:
 
-### Tool Schema Probleme?
+### Tool Schema Issues?
 
-Das Tool Schema im AI Agent muss exakt dem JSON Schema Standard folgen. Achte darauf:
-- `type: "object"` im Root
-- Alle Properties definieren mit `type`, `description`
-- Required fields im `required` Array angeben
+The tool schema in the AI Agent must follow the JSON Schema standard exactly. Make sure:
+- `type: "object"` at the root
+- Define all properties with `type`, `description`
+- Specify required fields in the `required` array
 
-### AI Agent gibt keine strukturierten Daten zurück?
+### AI Agent Not Returning Structured Data?
 
-Stelle sicher, dass:
-- Das Tool korrekt definiert ist
-- Der System Prompt klar sagt, dass das Tool verwendet werden soll
-- Der User Prompt alle notwendigen Daten aus dem Formular übergibt
+Make sure that:
+- The tool is correctly defined
+- The System Prompt clearly states that the tool should be used
+- The User Prompt passes all necessary data from the form
 
-### Google Sheets Mapping funktioniert nicht?
+### Google Sheets Mapping Not Working?
 
-Häufige Fehler:
-- Node-Namen stimmen nicht überein (Case-sensitive!)
-- Arrays müssen mit `.join()` zusammengefügt werden
-- Prüfe die Output-Struktur des AI Agent Nodes
+Common errors:
+- Node names don't match (case-sensitive!)
+- Arrays must be joined with `.join()`
+- Check the output structure of the AI Agent Node
 
-### Testen mit realistischen Daten
+### Testing with Realistic Data
 
-Erstelle mindestens 3 Test-Bewerbungen:
-1. **Perfekte Bewerbung**: 10+ Jahre Erfahrung, perfekt passende Skills, hervorragendes Anschreiben
-2. **Schwache Bewerbung**: Wenig Erfahrung, unpassende Skills, generisches Anschreiben
-3. **Mittelmäßige Bewerbung**: Solide Erfahrung, teilweise passende Skills, okay Anschreiben
+Create at least 3 test applications:
+1. **Perfect Application**: 10+ years experience, perfectly matching skills, excellent cover letter
+2. **Weak Application**: Little experience, mismatched skills, generic cover letter
+3. **Average Application**: Solid experience, partially matching skills, decent cover letter
 
-So kannst Du prüfen, ob der AI Agent fair und konsistent bewertet.
+This allows you to check whether the AI Agent evaluates fairly and consistently.
 
 ### Best Practice: Prompt Engineering
 
-Für bessere Bewertungen, sage dem AI Agent:
-- Auf welche Position genau bewertet werden soll
-- Welche Skills besonders wichtig sind
-- Welche Kriterien für EINLADEN/ABLEHNEN/WARTELISTE gelten
+For better evaluations, tell the AI Agent:
+- Which position is being evaluated
+- Which skills are particularly important
+- What criteria apply for INVITE/REJECT/WAITLIST
 
-Beispiel im System Prompt:
+Example in System Prompt:
 ```
-Für diese Position sind wichtig: 5+ Jahre Erfahrung, React, TypeScript, Teamfähigkeit.
-EINLADEN: Score 8+, alle wichtigen Skills vorhanden
-WARTELISTE: Score 6-7, einige Skills fehlen
-ABLEHNEN: Score <6 oder kritische Skills fehlen
+Important for this position: 5+ years experience, React, TypeScript, teamwork.
+INVITE: Score 8+, all important skills present
+WAITLIST: Score 6-7, some skills missing
+REJECT: Score <6 or critical skills missing
 ```

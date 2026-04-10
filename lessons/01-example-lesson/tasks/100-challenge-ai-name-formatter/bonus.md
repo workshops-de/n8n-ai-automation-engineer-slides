@@ -1,88 +1,88 @@
 # Bonus Challenges
 
-## 1. Themen-basierte Nicknames
+## 1. Theme-Based Nicknames
 
-Erweitere den Chat um Themen-Auswahl:
-- Füge im System Prompt hinzu: "Der Nutzer kann ein Thema angeben (z.B. 'Space', 'Superhelden', 'Mittelalter')"
-- Der AI Agent soll nach dem Thema fragen, wenn keins angegeben wurde
-- Speichere das Thema als zusätzliches Feld im Google Sheet
+Extend the chat with theme selection:
+- Add to the System Prompt: "The user can specify a theme (e.g., 'Space', 'Superheroes', 'Medieval')"
+- The AI Agent should ask for a theme if none was given
+- Save the theme as an additional field in Google Sheets
 
-**Beispiel Chat:**
+**Example Chat:**
 ```
-Nutzer: "Max Mustermann, Thema: Space"
-Bot: "🚀 Dein Space-Nickname: Captain Maximus der Sternenwanderer!"
+User: "Max Mustermann, Theme: Space"
+Bot: "🚀 Your Space Nickname: Captain Maximus the Star Wanderer!"
 ```
 
-## 2. Multiple Varianten zur Auswahl
+## 2. Multiple Variants to Choose From
 
-Lass den AI Agent 3 verschiedene Nickname-Optionen generieren:
-- Der AI Agent präsentiert alle 3 Optionen
-- Der Nutzer wählt eine aus (z.B. "Option 1")
-- Nur die gewählte wird gespeichert
+Have the AI Agent generate 3 different nickname options:
+- The AI Agent presents all 3 options
+- The user selects one (e.g., "Option 1")
+- Only the chosen one is saved
 
-**Beispiel:**
+**Example:**
 ```
-🎲 3 Nickname-Optionen für "Anna Schmidt":
-1. Die Schmidtinatorin
+🎲 3 Nickname Options for "Anna Smith":
+1. The Smithinator
 2. Anna-Banana
-3. Blitzschmidt
+3. Lightning Smith
 
-Welche gefällt dir am besten? (1, 2 oder 3)
+Which one do you like best? (1, 2 or 3)
 ```
 
-## 3. Persönlichkeits-Integration
+## 3. Personality Integration
 
-Füge ein Persönlichkeits-Feld hinzu:
-- Der Nutzer kann optional eine Persönlichkeit angeben: "lustig", "ernst", "kreativ", "sportlich"
-- Der AI Agent passt den Nickname-Stil an die Persönlichkeit an
-- Speichere die Persönlichkeit im Google Sheet
+Add a personality field:
+- The user can optionally specify a personality: "funny", "serious", "creative", "sporty"
+- The AI Agent adapts the nickname style to the personality
+- Save the personality in Google Sheets
 
-**Beispiel:**
+**Example:**
 ```
-Nutzer: "Lisa Weber, lustig"
-Bot: "😂 Dein lustiger Nickname: Weber-Grill-Lisa (Immer heiß auf Party!)"
+User: "Lisa Webb, funny"
+Bot: "😂 Your funny nickname: Web-Grill-Lisa (Always hot for a party!)"
 ```
 
 ## 4. Rating System
 
-Implementiere ein Bewertungssystem:
-- Nach jedem Nickname fragt der Bot: "Gefällt dir der Nickname? 👍 oder 👎"
-- Der Nutzer antwortet mit Emoji oder "ja"/"nein"
-- Speichere das Rating im Google Sheet
-- Bonus: Bei 👎 generiert der AI Agent einen neuen Nickname
+Implement a rating system:
+- After each nickname the bot asks: "Do you like the nickname? 👍 or 👎"
+- The user responds with emoji or "yes"/"no"
+- Save the rating in Google Sheets
+- Bonus: With 👎 the AI Agent generates a new nickname
 
-## 5. Statistik Dashboard
+## 5. Statistics Dashboard
 
-Erstelle ein zweites Google Sheet Tab "Statistik":
-- Anzahl generierte Nicknames pro Tag
-- Durchschnittliche Ratings
-- Beliebteste Themen
-- Häufigste Namen
+Create a second Google Sheet tab "Statistics":
+- Number of nicknames generated per day
+- Average ratings
+- Most popular themes
+- Most common names
 
-Verwende eine **Google Sheets Formula** oder einen zusätzlichen **Schedule Trigger**, der täglich die Stats aktualisiert.
+Use a **Google Sheets Formula** or an additional **Schedule Trigger** that updates the stats daily.
 
 ## 6. Multi-Language Support
 
-Erweitere den Bot um Mehrsprachigkeit:
-- Der Nutzer kann die Sprache wählen: "Deutsch", "English", "Español"
-- Der AI Agent antwortet in der gewählten Sprache
-- Nicknames werden sprachspezifisch generiert
+Extend the bot with multilingual support:
+- The user can choose the language: "German", "English", "Spanish"
+- The AI Agent responds in the chosen language
+- Nicknames are generated language-specifically
 
-**Beispiel:**
+**Example:**
 ```
-Nutzer: "English: John Smith"
+User: "English: John Smith"
 Bot: "🎉 Your Nickname: The Smithsonian (Like the museum, unforgettable!)"
 ```
 
 ## 7. Nickname History
 
-Zeige die letzten 5 Nicknames im Chat:
-- Füge einen **Google Sheets Read** Node vor dem AI Agent ein
-- Lese die letzten 5 Einträge
-- Der AI Agent kann sehen, welche Nicknames bereits generiert wurden
-- Verhindert Duplikate und kann Trends erkennen
+Show the last 5 nicknames in the chat:
+- Add a **Google Sheets Read** Node before the AI Agent
+- Read the last 5 entries
+- The AI Agent can see which nicknames were already generated
+- Prevents duplicates and can spot trends
 
-**Beispiel:**
+**Example:**
 ```
-Bot: "Ich habe heute schon 5 Space-themed Nicknames erstellt - du liebst das Weltall! 🚀"
+Bot: "I've already created 5 space-themed nicknames today - you love outer space! 🚀"
 ```

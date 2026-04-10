@@ -1,74 +1,74 @@
 # Trainer Hints
 
-## Wichtige Punkte für die Durchführung
+## Key Points for Delivery
 
-### Vorbereitung
+### Preparation
 
-1. **Google Sheet Template erstellen**: Bereite ein Beispiel-Sheet vor, damit Teilnehmer es kopieren können
-2. **API Keys prüfen**: Stelle sicher, dass alle Teilnehmer Zugriff auf ein AI Model haben (z.B. über Anthropic, Google, etc.)
-3. **Demo-Bewerbungen**: Halte 2-3 realistische Beispiel-Bewerbungen bereit
+1. **Create Google Sheet Template**: Prepare a sample sheet that participants can copy
+2. **Check API Keys**: Ensure all participants have access to an AI Model (e.g., via Anthropic, Google, etc.)
+3. **Demo Applications**: Have 2-3 realistic sample applications ready
 
-### Häufige Stolpersteine
+### Common Pitfalls
 
 #### 1. Tool Schema Syntax
-Teilnehmer vergessen oft:
-- Das `type: "object"` im Root-Level
-- Die `required` Felder zu definieren
-- Korrekte JSON Schema Syntax (besonders bei Arrays)
+Participants often forget:
+- The `type: "object"` at root level
+- To define the `required` fields
+- Correct JSON Schema syntax (especially for arrays)
 
-**Tipp**: Zeige das Tool Schema im JSON Format und erkläre kurz JSON Schema Basics.
+**Tip**: Show the tool schema in JSON format and briefly explain JSON Schema basics.
 
 #### 2. AI Agent Tool Output
-Der Output des AI Agent muss richtig gemappt werden:
-- Wenn das Tool aufgerufen wurde, sind die Daten in `$json.tool_output` oder direkt in `$json`
-- Prüfe die tatsächliche Struktur im Node Output!
+The output of the AI Agent must be mapped correctly:
+- If the tool was called, the data is in `$json.tool_output` or directly in `$json`
+- Check the actual structure in the Node Output!
 
 #### 3. Field Mapping in Google Sheets
-- Array-Felder (strengths, weaknesses) müssen mit `.join()` oder `.join(', ')` zusammengefügt werden
-- Achte auf die korrekte Node-Referenzierung: `$('n8n Form Trigger').item.json.field`
+- Array fields (strengths, weaknesses) must be joined with `.join()` or `.join(', ')`
+- Pay attention to correct node referencing: `$('n8n Form Trigger').item.json.field`
 
-### Zeitmanagement
+### Time Management
 
 - **15 Min**: Form + AI Agent Setup
 - **10 Min**: Google Sheets Integration
-- **5 Min**: Testing und Debugging
+- **5 Min**: Testing and Debugging
 
-### Erweiterte Diskussionspunkte
+### Advanced Discussion Points
 
-Nach der Übung kannst Du diskutieren:
+After the exercise you can discuss:
 
-1. **Bias in AI-Bewertungen**
-   - Wie vermeiden wir unfaire Bewertungen?
-   - Sollte AI allein entscheiden oder nur unterstützen?
-   - Was ist mit Namen, Geschlecht, Alter?
+1. **Bias in AI Evaluations**
+   - How do we avoid unfair evaluations?
+   - Should AI decide alone or only assist?
+   - What about names, gender, age?
 
-2. **Datenschutz (DSGVO)**
-   - Bewerberdaten sind sensibel
-   - Wo werden die Daten gespeichert?
-   - Wie lange dürfen sie aufbewahrt werden?
+2. **Data Privacy (GDPR)**
+   - Applicant data is sensitive
+   - Where is the data stored?
+   - How long can it be retained?
 
-3. **Qualitätssicherung**
-   - Wie testet man AI-Bewertungen?
-   - Sollte ein Mensch jede Bewertung prüfen?
-   - Welche Metriken zeigen gute/schlechte Bewertungen?
+3. **Quality Assurance**
+   - How do you test AI evaluations?
+   - Should a human review every evaluation?
+   - What metrics show good/bad evaluations?
 
-4. **Skalierung**
-   - Was bei 1000 Bewerbungen pro Tag?
-   - Rate Limits der AI APIs
-   - Kosten pro Bewerbung
+4. **Scaling**
+   - What about 1000 applications per day?
+   - Rate limits of AI APIs
+   - Cost per application
 
-### Bonus Challenges (wenn Zeit bleibt)
+### Bonus Challenges (if time allows)
 
-1. **Automatische Antwort-Email**: Füge einen Email-Node hinzu, der Bewerber automatisch informiert
-2. **Multi-Language Support**: Bewerbungen in verschiedenen Sprachen
-3. **CV Parsing**: Integration eines PDF-Parsers für hochgeladene Lebensläufe
-4. **Ranking**: Sortiere Bewerber automatisch nach Score in einem separaten Sheet-Tab
+1. **Automatic Response Email**: Add an Email Node that automatically notifies applicants
+2. **Multi-Language Support**: Applications in different languages
+3. **CV Parsing**: Integration of a PDF parser for uploaded resumes
+4. **Ranking**: Automatically sort applicants by score in a separate sheet tab
 
-### Troubleshooting Checkliste
+### Troubleshooting Checklist
 
-- [ ] Ist der AI Agent mit einem Model verbunden?
-- [ ] Ist das Tool Schema valide JSON Schema?
-- [ ] Wird das Tool im Agent Output angezeigt?
-- [ ] Sind die Google Sheets Credentials konfiguriert?
-- [ ] Existiert das Sheet und sind die Spalten richtig benannt?
-- [ ] Sind alle Field Mappings korrekt (keine Tippfehler)?
+- [ ] Is the AI Agent connected to a model?
+- [ ] Is the tool schema valid JSON Schema?
+- [ ] Is the tool shown in the agent output?
+- [ ] Are Google Sheets credentials configured?
+- [ ] Does the sheet exist and are the columns correctly named?
+- [ ] Are all field mappings correct (no typos)?

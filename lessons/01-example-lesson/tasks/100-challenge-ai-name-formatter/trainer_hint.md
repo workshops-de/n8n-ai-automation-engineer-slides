@@ -1,114 +1,114 @@
 # Trainer Hints
 
-## Wichtige Punkte für die Durchführung
+## Key Points for Delivery
 
-### Vorbereitung
+### Preparation
 
-1. **Google Sheet Template**: Erstelle ein vorbereitetes Sheet, das Teilnehmer kopieren können
-2. **Chat URL Demo**: Zeige live, wie man die Chat URL findet und öffnet
-3. **Tool Schema Vorlage**: Halte das JSON Schema bereit zum Copy-Paste
-4. **AI Model Access**: Sicherstellen, dass alle Zugriff haben
+1. **Google Sheet Template**: Create a prepared sheet that participants can copy
+2. **Chat URL Demo**: Show live how to find and open the Chat URL
+3. **Tool Schema Template**: Have the JSON Schema ready for copy-paste
+4. **AI Model Access**: Ensure everyone has access
 
-### Häufige Stolpersteine
+### Common Pitfalls
 
-#### 1. Tool wird nicht aufgerufen
+#### 1. Tool Not Being Called
 
-Das ist der häufigste Fehler! Ursachen:
-- **System Prompt zu schwach**: "IMMER das Tool verwenden" muss explizit drin sein
-- **Tool Schema Fehler**: JSON Schema muss 100% valide sein
-- **Falsches Model**: Nicht alle Models sind gut in Tool-Use
+This is the most common error! Causes:
+- **System Prompt too weak**: "ALWAYS use the tool" must be explicitly included
+- **Tool Schema Error**: JSON Schema must be 100% valid
+- **Wrong Model**: Not all models are good at tool use
 
-**Lösung**: Zeige live, wie man prüft, ob das Tool aufgerufen wurde (im AI Agent Output)
+**Solution**: Show live how to check whether the tool was called (in the AI Agent Output)
 
-#### 2. Chat Trigger Verwirrung
+#### 2. Chat Trigger Confusion
 
-Teilnehmer verstehen oft nicht:
-- Der Workflow muss **aktiviert** sein (nicht nur gespeichert)
-- Die Chat URL ändert sich nicht, auch nach Änderungen
-- Man kann den Chat in einem neuen Tab öffnen zum Testen
+Participants often don't understand:
+- The workflow must be **activated** (not just saved)
+- The Chat URL doesn't change, even after modifications
+- You can open the chat in a new tab for testing
 
-**Tipp**: Zeige den Unterschied zwischen "Save" und "Activate" deutlich
+**Tip**: Clearly show the difference between "Save" and "Activate"
 
 #### 3. Google Sheets Mapping
 
-Häufige Fehler:
-- Falsche Referenzen: `$json.original_name` statt `$('AI Agent').item.json.original_name`
-- Node umbenannt, aber Referenzen nicht aktualisiert
-- Annahme, dass Daten immer da sind (Tool könnte ja nicht aufgerufen werden)
+Common errors:
+- Wrong references: `$json.original_name` instead of `$('AI Agent').item.json.original_name`
+- Node renamed, but references not updated
+- Assumption that data is always there (the tool might not have been called)
 
-### Zeitmanagement
+### Time Management
 
-- **5 Min**: Chat Trigger Setup und Demo
-- **10 Min**: AI Agent mit Tool konfigurieren
+- **5 Min**: Chat Trigger Setup and Demo
+- **10 Min**: Configure AI Agent with Tool
 - **5 Min**: Google Sheets Integration
-- **5 Min**: Testing und Troubleshooting
+- **5 Min**: Testing and Troubleshooting
 
-### Demo-Tipps
+### Demo Tips
 
-Zeige live:
-1. **Chat Trigger Setup**: Wie schnell man einen Chat erstellt
-2. **Tool Definition**: Schreibe das JSON Schema live oder copy-paste
-3. **System Prompt Wichtigkeit**: Zeige, was passiert, wenn man "IMMER Tool verwenden" weglässt
-4. **Debug-Workflow**: Wie man prüft, ob das Tool aufgerufen wurde
-5. **Google Sheets**: Live-Update beim Testen zeigen
+Show live:
+1. **Chat Trigger Setup**: How quickly you can create a chat
+2. **Tool Definition**: Write the JSON Schema live or copy-paste
+3. **System Prompt Importance**: Show what happens when you leave out "ALWAYS use tool"
+4. **Debug Workflow**: How to check whether the tool was called
+5. **Google Sheets**: Show live update during testing
 
-### Erweiterte Diskussionspunkte
+### Advanced Discussion Points
 
-Nach der Übung:
+After the exercise:
 
 1. **Tool-Use vs. Prompt-Only**
-   - Wann sollte man Tools verwenden?
-   - Vorteile: Strukturierte Ausgabe, Validierung
-   - Nachteile: Komplexität, nicht alle Models unterstützen es gut
+   - When should you use tools?
+   - Advantages: Structured output, validation
+   - Disadvantages: Complexity, not all models support it well
 
 2. **Chat State Management**
-   - Wie behält der Chat den Kontext?
-   - Session IDs nutzen
+   - How does the chat maintain context?
+   - Using session IDs
    - Multi-Turn Conversations
 
-3. **Kreativität vs. Konsistenz**
-   - Wie kontrolliert man AI-Kreativität?
-   - Temperature Settings
-   - Few-Shot Examples im Prompt
+3. **Creativity vs. Consistency**
+   - How do you control AI creativity?
+   - Temperature settings
+   - Few-shot examples in the prompt
 
 4. **Production Considerations**
-   - Rate Limits bei vielen gleichzeitigen Chats
-   - Kosten pro Chat-Message
-   - Error Handling: Was wenn der AI Agent nicht antwortet?
+   - Rate limits with many simultaneous chats
+   - Cost per chat message
+   - Error handling: What if the AI Agent doesn't respond?
 
-### Bonus Challenges (wenn Zeit bleibt)
+### Bonus Challenges (if time allows)
 
-1. **Themen-Auswahl**: Nutzer kann Thema wählen (Space, Superhelden, Mittelalter)
-2. **Mehrere Varianten**: AI generiert 3 Nicknames zur Auswahl
-3. **Persönlichkeit**: Zusätzliches Feld für Persönlichkeits-Typ
-4. **Rating System**: Nutzer kann Nicknames bewerten (👍/👎)
-5. **Statistik**: Separates Sheet mit Statistiken (Wie viele Nicknames pro Tag?)
+1. **Theme Selection**: User can choose theme (Space, Superheroes, Medieval)
+2. **Multiple Variants**: AI generates 3 nicknames to choose from
+3. **Personality**: Additional field for personality type
+4. **Rating System**: Users can rate nicknames (👍/👎)
+5. **Statistics**: Separate sheet with statistics (How many nicknames per day?)
 
-### Troubleshooting Checkliste
+### Troubleshooting Checklist
 
-- [ ] Ist der Workflow aktiviert (nicht nur gespeichert)?
-- [ ] Ist das Tool Schema valides JSON?
-- [ ] Steht "IMMER Tool verwenden" im System Prompt?
-- [ ] Ist der AI Agent mit einem Model verbunden?
-- [ ] Wird das Tool im AI Agent Output angezeigt?
-- [ ] Sind Google Sheets Credentials konfiguriert?
-- [ ] Sind die Field Mappings korrekt?
-- [ ] Wurde der Chat tatsächlich getestet (nicht nur der Workflow ausgeführt)?
+- [ ] Is the workflow activated (not just saved)?
+- [ ] Is the tool schema valid JSON?
+- [ ] Does "ALWAYS use tool" appear in the System Prompt?
+- [ ] Is the AI Agent connected to a model?
+- [ ] Is the tool shown in the AI Agent Output?
+- [ ] Are Google Sheets credentials configured?
+- [ ] Are the field mappings correct?
+- [ ] Was the chat actually tested (not just the workflow executed)?
 
-### Alternative Ansätze
+### Alternative Approaches
 
-Falls Tool-Use zu kompliziert ist:
-- **Vereinfachung**: AI gibt nur den Nickname zurück (ohne Tool)
-- **Regex Parsing**: Parse die AI Antwort mit Regex statt Tool
-- **Strukturierter Output**: Nutze JSON Output Mode (manche Models)
+If tool use is too complicated:
+- **Simplification**: AI only returns the nickname (without tool)
+- **Regex Parsing**: Parse the AI response with regex instead of tool
+- **Structured Output**: Use JSON Output Mode (some models)
 
-### Model-Empfehlungen
+### Model Recommendations
 
-Für Tool-Use am besten:
-- GPT-4 (sehr zuverlässig)
-- Claude Sonnet 3.5+ (exzellent)
-- GPT-3.5-Turbo (okay, manchmal inkonsistent)
+Best for tool use:
+- GPT-4 (very reliable)
+- Claude Sonnet 3.5+ (excellent)
+- GPT-3.5-Turbo (okay, sometimes inconsistent)
 
-Weniger geeignet:
-- Ältere oder kleinere Models
-- Models ohne Tool/Function Calling Support
+Less suitable:
+- Older or smaller models
+- Models without Tool/Function Calling support
