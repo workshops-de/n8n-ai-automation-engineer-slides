@@ -37,6 +37,11 @@ Create an AI Agent connected to a Vector Store. As an example, we'll use the Dun
 - Maintain conversations and access past information
 - It's fun! 🎲
 
+### Prerequisites
+
+> ✅ Make sure you completed the **Pinecone Account Setup** task first.  
+> You should have an index named `dungeonsrulebook` with status **Ready** and your API Key at hand.
+
 ### Step-by-Step Guide
 
 #### Part 1: AI Agent Setup
@@ -64,35 +69,27 @@ Create an AI Agent connected to a Vector Store. As an example, we'll use the Dun
 
 #### Part 3: Set Up Vector Store
 
-4. **Create Pinecone Account**
-   - Go to Pinecone.io and create an account
-   - Create a new index:
-     - Name: `dungeonsrulebook`
-     - Model: `text-embedding-3-small`
-     - Click "Create Index"
-   - Copy your API Key
-
-5. **Configure Vector Store Node**
+4. **Configure Vector Store Node**
    - Add a "Pinecone Vector Store" Node
    - Mode: Insert
-   - Add your Pinecone Credentials
+   - Add your Pinecone Credentials (API Key from the previous task)
    - Index Name: `dungeonsrulebook`
    
-6. **Add Embeddings and Data Loader**
+5. **Add Embeddings and Data Loader**
    - Connect "Embeddings OpenAI" to the Vector Store
      - Model: `text-embedding-3-small`
    - Connect "Default Data Loader" to the Vector Store
      - Input: Binary data from Google Drive
    - Configure Chunk Settings (e.g., Chunk Size: 1000)
 
-7. **Vectorize PDF**
+6. **Vectorize PDF**
    - Execute the "D&D Rules Uploader" workflow
    - The PDF will be downloaded, split into chunks, vectorized, and uploaded to Pinecone
    - This may take a few minutes
 
 #### Part 4: Connect AI Agent to Vector Store
 
-8. **Add Vector Store as Tool**
+7. **Add Vector Store as Tool**
    - Go back to the "D&D Game Master" workflow
    - Add a "Pinecone Vector Store" Node as a tool
    - Mode: Retrieve
@@ -100,7 +97,7 @@ Create an AI Agent connected to a Vector Store. As an example, we'll use the Dun
    - Connect it to the AI Agent (Tools Connector)
    - Tool Description: "Search the D&D rulebook for specific rules and game mechanics"
 
-9. **System Prompt for Game Master**
+8. **System Prompt for Game Master**
    ```
    You are an expert Dungeons & Dragons Game Master assistant.
    
@@ -117,7 +114,7 @@ Create an AI Agent connected to a Vector Store. As an example, we'll use the Dun
    Be helpful, accurate, and make learning D&D fun!
    ```
 
-10. **Test the Game Master**
+9. **Test the Game Master**
     - Open the chat
     - Ask questions like:
       - "How do I create a character?"

@@ -1,9 +1,9 @@
 # Task Configuration
-title: 'RAG with Pinecone - D&D Game Master'
-position: 140
+title: 'Preparation: Pinecone Account Setup'
+position: 143
 category: 'Advanced'
-preparation: false
-estimated_time_in_minutes: 30
+preparation: true
+estimated_time_in_minutes: 10
 always_unlocked: false
 
 # Note: Markdown content is loaded from separate files:
