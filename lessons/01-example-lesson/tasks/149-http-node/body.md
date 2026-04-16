@@ -9,12 +9,8 @@ Build an AI Agent that uses two HTTP Request nodes as tools: one for querying RE
 - Connecting HTTP Request nodes as tools to an AI Agent
 - Fetching and interpreting REST API responses
 - Crawling website content with "Optimize Response"
-- Using `$fromAI()` to let the agent dynamically set request parameters
+- Using ✨ or `$fromAI()` to let the agent dynamically set request parameters
 
-## Workflow Overview
-
-**Chat Trigger** → **AI Agent** → **HTTP REST API Request** (Tool)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘ **HTTP WebSite Crawl** (Tool)
 
 ## Step-by-Step Guide
 
@@ -60,16 +56,7 @@ This strips away HTML tags, scripts, and styling – returning only the readable
 
 ### 4. Add a System Prompt to the Agent
 
-Open the AI Agent node and add a system prompt, for example:
-
-```
-You are a helpful research assistant with access to two tools:
-
-1. HTTP REST API Request – use this to query structured JSON APIs when the user asks for data from a specific API endpoint.
-2. HTTP WebSite Crawl – use this to fetch and read the content of a webpage when the user provides a URL or asks about a website.
-
-Always summarize the results in a clear and concise way.
-```
+Create your own system prompt in dialog with an chat agent like claude chat etc
 
 ### 5. Test the Agent
 
@@ -90,19 +77,3 @@ What is on the homepage of https://workshops.de?
 ```
 Summarize the content of https://n8n.io
 ```
-
-## Learning Objectives
-
-- ✓ Connect HTTP Request nodes as tools to an AI Agent
-- ✓ Use `$fromAI()` to pass dynamic URLs from the agent
-- ✓ Distinguish between REST API calls and website crawling
-- ✓ Configure "Optimize Response" to extract clean page content
-
-## Success Criteria
-
-- [ ] Chat Trigger and AI Agent are connected
-- [ ] Tool 1 (`HTTP REST API Request`) successfully fetches JSON from `jsonplaceholder.typicode.com/users`
-- [ ] Tool 2 (`HTTP WebSite Crawl`) fetches and returns readable text from a webpage
-- [ ] "Optimize Response" is enabled with `HTML` type and `body` selector on Tool 2
-- [ ] Agent correctly chooses the right tool based on the user's question
-- [ ] Agent summarizes the results in a readable format
