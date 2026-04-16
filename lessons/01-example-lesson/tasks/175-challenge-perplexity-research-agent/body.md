@@ -17,15 +17,7 @@ Build an AI Agent that can search the internet in real-time using Perplexity AI 
 
 ## Step-by-Step Guide
 
-### 1. (optional) Get a Perplexity API Key
-
-We provide an API Key in the Enviorment from Workshops.DE. Only if you want to your own! =)
-
-- Go to [perplexity.ai](https://www.perplexity.ai) and create an account
-- Navigate to **Settings → API** and generate an API key
-- Copy the key – you'll need it in Step 3
-
-### 2. Set Up the Base Workflow
+### 1. Set Up the Base Workflow
 
 - Add a **Chat Trigger** node
 - Add an **AI Agent** node (Claude recommended)
@@ -34,13 +26,13 @@ We provide an API Key in the Enviorment from Workshops.DE. Only if you want to y
 
 Create a system prompt in dialog with your preferred chat agent.
 
-### 3. Configure the Perplexity Tool to your Agent
+### 2. Configure the Perplexity Tool to your Agent
 
 - Add an **Perplexi Tool** node and set `Text` field to AI Magic ✨ or use `$fromAI()`.
 
 > **Important:** The `$fromAI()` function allows the AI Agent to dynamically pass the search query when it calls this tool. The agent decides what to search for.
 
-### 4. Test the Agent
+### 3. Test the Agent
 
 Open the chat and try these research queries:
 
@@ -57,7 +49,7 @@ Research the newest features of n8n and summarize them.
 What happened at the last major climate summit?
 ```
 
-### 5. Verify Source Attribution
+### 4. Verify Source Attribution
 
 The Perplexity API response includes citations. 
 
