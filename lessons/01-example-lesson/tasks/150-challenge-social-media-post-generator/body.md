@@ -21,6 +21,8 @@ Create a fully automated content generator workflow triggered via Google Forms. 
 
 ### 1. Create Google Form
 
+[https://docs.google.com/forms/](https://docs.google.com/forms/)
+
 Create a Google Form with the following fields:
 
 **Field 1: Topic**
@@ -76,21 +78,6 @@ The System Prompt is the most important part of this challenge! It must clearly 
 - How it should process the data from Google Sheets
 
 💡 **Tip:** Use ChatGPT or Claude to create the perfect System Prompt!
-
-For example ask:
-> "I'm building an n8n workflow with an AI Agent that creates social media posts. The agent has tools for: Google Sheets (Read), Twitter, LinkedIn, and Google Sheets (Update). Create a System Prompt that explains to the agent how to autonomously read topics from the sheet, generate, publish, and update the sheet. Twitter max 280 characters, LinkedIn max 300 characters."
-
-Experiment with different prompt variations and test which works best!
-
-**User Prompt:**
-```
-A new topic was submitted via the Google Form:
-
-Topic: {{ YOU NEED TO FILL IN SOMETHING HERE 😉 }}
-Platform: {{ YOU NEED TO FILL IN SOMETHING HERE 😉 }}
-
-Create a suitable social media post, save it as a Google Doc and update the Google Sheet with the Doc link.
-```
 
 ### 5. Prepare Google Drive Folder
 
