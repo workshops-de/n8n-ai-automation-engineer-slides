@@ -1,8 +1,8 @@
 # Lesson configuration for repository import
 # This file defines the lesson metadata that will be synced to the platform
 
-name: Advanced Concepts
-position: 2
+name: AI Automation Engineer with N8N - Module 1
+position: 1
 
 # Trainer (use email or slug to match existing trainer)
 trainer: trainer@workshops.de
@@ -12,10 +12,10 @@ github_code_url: https://github.com/workshops-de/example-code-repo
 git_tag_starting: main
 
 # Presentation type: "google_slides" or "slidev"
-slides_type: slidev
+slides_type: google_slides
 
 # For Google Slides (uncomment if using Google Slides)
-# google_slide_id: "1NmeNH96Qj9jqwrHJ4axQEH7_1ptbkZPjQlLZ4jyWWg"
+google_slide_id: "1WE_xYb9aCBwt5z8ui_mFrq90V1N0XZPWY32_ycqtwI8"
 
 # For Slidev (slides_url is auto-generated from repository during import)
 # slides_url will be set automatically based on GitHub Pages URL
@@ -24,7 +24,7 @@ slides_type: slidev
 pdf_generation_enabled: true
 
 # Playground options
-stackblitz_enabled: true
+stackblitz_enabled: false
 codesandbox_enabled: false
 
 # Status
