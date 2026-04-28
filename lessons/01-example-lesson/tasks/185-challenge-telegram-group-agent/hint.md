@@ -1,30 +1,30 @@
 # Hints
 
-## Bot antwortet nicht auf Nachrichten?
+## Bot does not reply to messages?
 
-- Stelle sicher, dass der Bot **Admin** in der Gruppe ist
-- Prüfe, ob der Workflow in n8n **aktiv** ist (grüner Toggle oben rechts)
-- Teste mit `https://api.telegram.org/bot<TOKEN>/getUpdates` ob Nachrichten ankommen
-- Prüfe ob der Telegram Trigger Webhook korrekt registriert ist: Node öffnen → „Listen for Test-Event" → Nachricht senden
+- Make sure the bot is **Admin** in the group
+- Check that the workflow in n8n is **active** (green toggle, top right)
+- Test with `https://api.telegram.org/bot<TOKEN>/getUpdates` whether updates arrive
+- Check that the Telegram Trigger webhook is registered: open the node → “Listen for Test-Event” → send a message
 
-## Chat-ID herausfinden
+## Find the chat ID
 
-Rufe im Browser auf:
+Open in the browser:
 ```
-https://api.telegram.org/bot<DEIN_TOKEN>/getUpdates
+https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
 ```
-Suche nach `"chat":{"id":` – für Gruppen ist die ID negativ (z. B. `-1001234567890`).
+Search for `"chat":{"id":` — for groups the ID is negative (e.g. `-1001234567890`).
 
-## Agent antwortet auf alle Nachrichten (auch eigene)?
+## Agent replies to every message (including its own)?
 
-Füge eine **IF-Node** nach dem Trigger ein und filtere Nachrichten, bei denen `$json.message.from.is_bot` gleich `true` ist – so vermeidest du Endlosschleifen.
+Add an **IF** node after the trigger and filter messages where `$json.message.from.is_bot` equals `true` — that avoids infinite loops.
 
-## $fromAI() richtig verwenden
+## Using `$fromAI()` correctly
 
 ```
 $fromAI('query', 'The search query to look up current information on the internet')
 ```
 
-## Telegram Send Message – Markdown aktivieren
+## Telegram Send Message — enable Markdown
 
-Um Formatierungen (fett, kursiv, Links) in Telegram zu nutzen, setze unter **Additional Fields** → **Parse Mode** auf `Markdown` oder `HTML`.
+To use formatting (bold, italic, links) in Telegram, set **Additional Fields** → **Parse Mode** to `Markdown` or `HTML`.

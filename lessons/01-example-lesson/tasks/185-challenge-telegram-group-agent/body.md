@@ -2,89 +2,89 @@
 
 ## Goal
 
-Baue einen AI Agenten, der in einer Telegram-Gruppe aktiv ist, auf Nachrichten reagiert, eigenständig Antworten über den **Telegram Send Message**-Node schreibt und bei Bedarf mit **Perplexity** Recherchen im Internet durchführt.
+Build an AI agent that is active in a Telegram group: it reacts to messages, sends replies via the **Telegram Send Message** node on its own, and uses **Perplexity** for web research when needed.
 
-## Workflow Overview
+## Workflow overview
 
-**Telegram Trigger** → **AI Agent** → **Telegram Send Message** (+ Perplexity Tool)
+**Telegram Trigger** → **AI Agent** → **Telegram Send Message** (+ Perplexity tool)
 
 ---
 
-## Part 1: Bot in Telegram-Gruppe hinzufügen
+## Part 1: Add the bot to a Telegram group
 
-### 1. Gruppe erstellen oder öffnen
+### 1. Create or open a group
 
-- Erstelle eine neue Telegram-Gruppe oder öffne eine bestehende
-- Füge deinen Bot als Mitglied hinzu (über „Mitglieder hinzufügen" → Botname suchen)
+- Create a new Telegram group or open an existing one
+- Add your bot as a member (**Add members** → search for the bot name)
 
-### 2. Bot zum Admin machen
+### 2. Make the bot an admin
 
-> ⚠️ **Wichtig:** Der Bot muss Admin-Rechte besitzen, damit er Nachrichten in der Gruppe lesen und senden kann.
+> ⚠️ **Important:** The bot needs admin rights so it can read and send messages in the group.
 
-- Öffne die Gruppeneinstellungen → **Administratoren** → **Admin hinzufügen**
+- Open group settings → **Administrators** → **Add admin**
 
-### 3. Chat-ID der Gruppe ermitteln
+### 3. Find the group chat ID
 
-- Öffne die Gruppe im Browser via https://web.telegram.org und kopiere die Chat ID
+- Open the group in the browser at https://web.telegram.org and copy the chat ID from the URL
 
 https://web.telegram.org/a/#-1001234567890
 
-- Kopiere die `ChatID` beginnt mit `-` für Gruppen, z. B. `-1001234567890`
+- For groups, the `ChatID` starts with `-`, e.g. `-1001234567890`
 
 ---
 
-## Part 2: n8n Workflow aufbauen
+## Part 2: Build the n8n workflow
 
-### 4. Telegram Trigger Node
+### 4. Telegram Trigger node
 
-- Füge einen **Telegram Trigger** Node hinzu
-- Wähle deine Telegram-Credential
+- Add a **Telegram Trigger** node
+- Select your Telegram credential
 - Event: **Message**
-- Speichere den Node – n8n registriert damit automatisch den Webhook beim Bot
+- Save the node — n8n registers the webhook with the bot automatically
 
-> 💡 Der Trigger feuert bei **jeder** Nachricht in der Gruppe. Der Agent entscheidet selbst, ob und wie er antwortet.
+> 💡 The trigger runs on **every** message in the group. The agent decides whether and how to reply.
 
-### 5. AI Agent Node
+### 5. AI Agent node
 
-- Füge einen **AI Agent** Node hinzu 
-- Verbinde: **Telegram Trigger** → **AI Agent**
-- Füge einen **Simple Memory** Node an den Agenten an
+- Add an **AI Agent** node
+- Connect: **Telegram Trigger** → **AI Agent**
+- Attach a **Simple Memory** node to the agent
 
-**System Prompt Beispiel:**
+**Example system prompt:**
 ```
-Du bist ein hilfreicher AI-Assistent in einer Telegram-Gruppe.
+You are a helpful AI assistant in a Telegram group.
 
-Wenn du eine Nachricht erhältst, entscheide ob und wie du antwortest:
-- Bei direkten Fragen: antworte präzise und hilfreich
-- Bei Recherchebedarf: nutze das Perplexity-Tool für aktuelle Informationen
-- Halte deine Antworten kurz und klar (Telegram-freundlich)
-- Antworte immer auf Deutsch, außer der Nutzer schreibt in einer anderen Sprache
+When you receive a message, decide whether and how to reply:
+- For direct questions: answer precisely and helpfully
+- When research is needed: use the Perplexity tool for current information
+- Keep answers short and clear (Telegram-friendly)
+- Reply in the same language the user writes in
 
-Die Nachricht kommt von: {{ $json.message.from.first_name }}
-Nachrichtentext: {{ $json.message.text }}
+Message from: {{ $json.message.from.first_name }}
+Message text: {{ $json.message.text }}
 ```
 
-**Input-Mapping:**
-- Setze das `Text`-Feld des Agenten auf:
+**Input mapping:**
+- Set the agent’s `Text` field to:
   ```
   {{ $json.message.text }}
   ```
 
-### 6. Perplexity Tool hinzufügen
+### 6. Add the Perplexity tool
 
-- Füge einen **Perplexity Tool** Node hinzu
-- Verbinde ihn als Tool mit dem AI Agent
-- Setze das `Text`-Feld auf AI Magic ✨ oder `$fromAI('query', 'The search query for internet research')`
+- Add a **Perplexity Tool** node
+- Connect it as a tool to the AI Agent
+- Set the `Text` field to AI Magic ✨ or `$fromAI('query', 'The search query for internet research')`
 
-### 7. Telegram Send Message Node
+### 7. Telegram Send Message node
 
-- Füge einen **Telegram** Tool Node hinzu
+- Add a **Telegram** tool node
 
-### 8. Workflow testen
+### 8. Test the workflow
 
-- Aktiviere den Workflow
-- Schreibe eine Nachricht in die Telegram-Gruppe, z. B.:
-  - `Was sind die neuesten n8n Features?`
-  - `Erkläre mir kurz, was RAG ist`
-  - `Wie ist das Wetter aktuell in Berlin?`
-- Der Bot sollte innerhalb weniger Sekunden antworten
+- Activate the workflow
+- Send a message in the Telegram group, for example:
+  - `What are the latest n8n features?`
+  - `Explain briefly what RAG is`
+  - `What is the weather like in Berlin right now?`
+- The bot should reply within a few seconds

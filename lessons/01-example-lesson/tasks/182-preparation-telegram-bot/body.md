@@ -1,34 +1,34 @@
-# Preparation: Telegram Bot erstellen
+# Preparation: Create a Telegram Bot
 
-Bevor wir den Telegram-Agenten in n8n bauen können, benötigst du einen eigenen Telegram Bot und dessen API-Token. Das geht schnell über den offiziellen **BotFather**.
+Before we can build the Telegram agent in n8n, you need your own Telegram bot and its API token. You create both quickly via the official **BotFather**.
 
-## Was ist BotFather?
+## What is BotFather?
 
-BotFather ist der offizielle Telegram-Bot zum Erstellen und Verwalten von Bots. Er stellt dir das API-Token aus, mit dem n8n später in deinem Namen Nachrichten senden und empfangen kann.
+BotFather is Telegram’s official bot for creating and managing bots. It gives you the API token n8n uses later to send and receive messages on your behalf.
 
-## Step-by-Step Guide
+## Step-by-step guide
 
-### 1. BotFather öffnen
+### 1. Open BotFather
 
-- Öffne Telegram (Desktop oder Mobile)
-- Suche nach `@BotFather` und starte den Chat
-- Alternativ: direkt über [t.me/BotFather](https://t.me/BotFather) öffnen
+- Open Telegram (desktop or mobile)
+- Search for `@BotFather` and start the chat
+- Or open directly: [t.me/BotFather](https://t.me/BotFather)
 
-### 2. Neuen Bot erstellen
+### 2. Create a new bot
 
-- Sende `/newbot`
-- BotFather fragt nach einem **Anzeigenamen** (z. B. `My n8n AI Agent`)
-- Danach einen **Benutzernamen** wählen – dieser muss einzigartig sein und auf `bot` enden (z. B. `my_n8n_ai_agent_bot`)
+- Send `/newbot`
+- BotFather asks for a **display name** (e.g. `My n8n AI Agent`)
+- Then choose a **username** — it must be unique and end with `bot` (e.g. `my_n8n_ai_agent_bot`)
 
-### 3. API-Token kopieren
+### 3. Copy the API token
 
-- Nach der Erstellung gibt BotFather ein Token im Format `123456789:ABCdef...` aus
-- **Dieses Token sorgfältig aufbewahren** – du brauchst es im nächsten Task
+- After creation, BotFather shows a token like `123456789:ABCdef...`
+- **Store this token securely** — you will need it in the next task
 
-> ⚠️ Teile dein Token niemals öffentlich. Damit kann jeder in deinem Bot-Namen Nachrichten senden.
+> ⚠️ Never share your token publicly. Anyone with it can send messages as your bot.
 
-### 4. Telegram-Credential in n8n anlegen
+### 4. Add the Telegram credential in n8n
 
-- Öffne n8n → **Credentials** → **Add Credential**
-- Wähle **Telegram API**
-- Füge dein Token ein und speichere die Credential
+- Open n8n → **Credentials** → **Add Credential**
+- Choose **Telegram API**
+- Paste your token and save the credential

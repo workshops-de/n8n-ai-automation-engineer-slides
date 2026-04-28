@@ -1,8 +1,8 @@
 # Lesson configuration for repository import
 # This file defines the lesson metadata that will be synced to the platform
 
-name: AI Automation Engineer with N8N - Module 1
-position: 1
+name: AI Automation Engineer with N8N - Module 2
+position: 2
 
 # Trainer (use email or slug to match existing trainer)
 trainer: trainer@workshops.de

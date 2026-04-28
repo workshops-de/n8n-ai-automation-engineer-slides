@@ -1,10 +1,10 @@
 # Task Configuration
-title: 'Preparation: Create Telegram Bot'
-position: 182
-category: 'Day 3 Challenges'
+title: 'Preparation: Neon account (neon.tech)'
+position: 7
+category: 'Preparation'
 preparation: true
 estimated_time_in_minutes: 10
-always_unlocked: false
+always_unlocked: true
 
 # Note: Markdown content is loaded from separate files:
 # - body.md           -> Main task description
