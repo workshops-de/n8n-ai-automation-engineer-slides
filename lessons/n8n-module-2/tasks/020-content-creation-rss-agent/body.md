@@ -39,7 +39,6 @@ If the user does not specify which story to use, the agent should either ask a c
 
 - Add an **RSS Feed Read** node
 - Set **URL** to: `https://github.blog/feed/`
-- Set **Limit** as you like (e.g. `5` or `10`) so the agent has a small set of recent posts to choose from
 - Connect the RSS node to the AI Agent using the **Tools** connector on the AI Agent
 
 ### 3. System prompt
