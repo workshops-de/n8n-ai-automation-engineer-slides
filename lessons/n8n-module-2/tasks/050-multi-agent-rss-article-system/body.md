@@ -58,11 +58,3 @@ Reflect on when to use:
 - **Sub-workflow / Execute Workflow–style tools**: better when a **whole branch** is reusable, long, or needs its own error handling.
 
 Briefly note in your README or workflow notes which pattern you used where, so a colleague could extend the system later.
-
-## Success criteria
-
-- [ ] **Topic Selector Agent** uses RSS **tool(s)** and avoids picking a topic already recorded as covered.
-- [ ] **Writer Agent** produces an article draft from the selector’s output.
-- [ ] **Proofreading** covers spelling plus **article-level** and **paragraph-level** length rules (by agent logic or nodes).
-- [ ] The workflow uses a **sequential** pipeline and includes at least **one explicit loop** for revision or retry (or you document an equivalent pattern).
-- [ ] You can explain **when you used AI Agent tools** versus **sub-workflow tools** (or why you used only one kind).
