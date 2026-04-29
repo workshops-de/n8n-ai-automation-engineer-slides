@@ -47,7 +47,7 @@ Instruct the agent roughly as follows:
 1. Identify the **canonical article URL** (from the RSS item or user message).
 2. **Call the lookup tool** with that URL.
 3. If a row exists → return the **stored summary** (and mention it is cached if you like).
-4. If no row exists → use the RSS/content flow to **write** the mini-article (still **≤ 300 words**), then **call the insert tool** with `source_url` and `summary`.
+4. If no row exists → use the RSS/content flow to **write** the mini-article (still **≤ 100 words**), then **call the insert tool** with `source_url` and `summary`.
 
 This gives you **deduplication**: the same GitHub Blog post will not get a brand-new LLM summary every time unless you choose to override that policy in the prompt.
 

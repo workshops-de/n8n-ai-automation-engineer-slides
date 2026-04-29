@@ -9,4 +9,4 @@
 
 - **RSS node on the main execution path instead of tools**: The RSS Feed Read node must be attached via the AI Agent **Tools** connector so the model invokes it when needed.
 - **Wrong URL**: Typos in `github.blog` or missing trailing slash behavior—paste `https://github.blog/feed/` exactly.
-- **Huge outputs**: Remind learners that “news” here means short copy; reinforce the **300-word** cap in debrief.
+- **Huge outputs**: Remind learners that “news” here means short copy; reinforce the **100-word** cap in debrief.

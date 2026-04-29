@@ -18,7 +18,7 @@ Use this feed as the only example source:
 
 Each generated piece should read like a **brief news update**:
 
-- **Maximum 300 words**
+- **Maximum 100 words**
 - Focus on **what happened** and **why it matters** for developers or teams
 - Base the summary on the **RSS item** (title, link, and description or content the feed provides)
 - Optional: include the **source URL** so readers can open the original post
@@ -43,7 +43,7 @@ If the user does not specify which story to use, the agent should either ask a c
 
 ### 3. System prompt
 
-Use a prompt that encodes the **300-word cap** and the **news** style. Use a chat-assistent like Claude to generate your system prompt.
+Use a prompt that encodes the **100-word cap** and the **news** style. Use a chat-assistent like Claude to generate your system prompt.
 
 Adjust the wording to match your tone, but keep the **word limit** and **RSS tool usage** explicit.
 
@@ -53,6 +53,6 @@ Try prompts such as:
 
 - “Summarize the latest post from the GitHub Blog.”
 - “Write a short news piece about the third item in the feed.”
-- “Give me a 300-word max briefing on `An update on GitHub availability` (or another title you see in the feed).”
+- “Give me a 100-word max briefing on `An update on GitHub availability` (or another title you see in the feed).”
 
-Confirm the reply stays **at or under 300 words** and reflects the **correct article**.
+Confirm the reply stays **at or under 100 words** and reflects the **correct article**.
