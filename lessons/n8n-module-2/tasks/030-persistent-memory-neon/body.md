@@ -18,7 +18,7 @@ Neon hosts serverless Postgres with a connection string you can paste straight i
 ### 1. Open connection details in Neon
 
 1. Sign in to the [Neon Console](https://console.neon.tech).
-2. Select your **project** and **branch** (often `public`).
+2. Select your **project** and **branch** (often `production`).
 3. Open **Connection details** (or equivalent) for your database.
 
 Neon shows:

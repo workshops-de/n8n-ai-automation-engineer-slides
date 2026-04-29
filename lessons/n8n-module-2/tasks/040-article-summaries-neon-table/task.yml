@@ -1,10 +1,10 @@
 # Task Configuration
-title: 'Preparation: Install DBeaver'
-position: 8
-category: 'Preparation'
-preparation: true
-estimated_time_in_minutes: 15
-always_unlocked: true
+title: 'Store Article Summaries in Neon (Dedupe by Source URL)'
+position: 40
+category: 'AI Agents'
+preparation: false
+estimated_time_in_minutes: 40
+always_unlocked: false
 
 # Note: Markdown content is loaded from separate files:
 # - body.md           -> Main task description
