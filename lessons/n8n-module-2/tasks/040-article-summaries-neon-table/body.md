@@ -1,4 +1,4 @@
-# Store Article Summaries in Neon (Dedupe by Source URL)
+# Store Article Summaries Postgres DB
 
 ## Goal
 

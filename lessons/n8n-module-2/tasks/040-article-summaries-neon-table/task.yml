@@ -1,5 +1,5 @@
 # Task Configuration
-title: 'Store Article Summaries in Neon (Dedupe by Source URL)'
+title: 'Store Article Summaries Postgres DB'
 position: 40
 category: 'AI Agents'
 preparation: false
