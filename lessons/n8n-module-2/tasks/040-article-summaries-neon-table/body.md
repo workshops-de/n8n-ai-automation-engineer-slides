@@ -23,10 +23,10 @@ Use Neon’s visual **Tables** experience—do **not** create this table with th
 
 | Column       | Type              | Constraints / defaults |
 | ------------ | ----------------- | ----------------------- |
-| `id`         | `serial` / integer auto-generated | Set as **Primary key**, auto-increment |
+| `id`         | `serial` | Set as **Primary key**, auto-increment |
 | `source_url` | `text`            | **Not null**. Enable **Unique** so each URL appears at most once. |
 | `summary`    | `text`            | **Not null**. |
-| `created_at` | `timestamp`     | Default **`now()`** (or “current timestamp”) so rows record when they were stored. |
+| `created_at` | `timestamp`     | Default **`now()`** |
 
 6. Save / apply the table.
 
