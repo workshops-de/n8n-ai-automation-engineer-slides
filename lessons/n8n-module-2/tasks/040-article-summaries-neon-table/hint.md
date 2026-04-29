@@ -1,7 +1,6 @@
 # Hints
 
-<details>
-<summary>Hint 1: Tables UI — column checklist</summary>
+## Hint 1: Tables UI — column checklist
 
 Recreate the same shape as this schema when clicking columns in Neon **Tables**:
 
@@ -12,10 +11,9 @@ Recreate the same shape as this schema when clicking columns in Neon **Tables**:
 
 If anything looks ambiguous in the wizard, compare against the SQL in the next hint.
 
-</details>
 
-<details>
-<summary>Hint 2: Equivalent SQL (reference only)</summary>
+
+## Hint 2: Equivalent SQL (reference only)
 
 The exercise expects you to build the table in the **Tables** UI. If you need the exact relational definition—for example to sanity-check types or to run in SQL Editor as a fallback—use:
 
@@ -29,5 +27,3 @@ CREATE TABLE "article_summaries" (
 ```
 
 Adjust only if Neon already created objects with conflicting names.
-
-</details>
