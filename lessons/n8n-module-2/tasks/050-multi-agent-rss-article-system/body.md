@@ -49,12 +49,3 @@ Before adding nodes, decide:
 
 - Validate **spelling** (agent-based or integrated checker), **total word count**, and **paragraph length** (for example max words per paragraph).
 - If checks fail, route back to the writer **with concrete feedback** (which paragraph, how many words over limit). That back-edge is your **loop**.
-
-## Step 5 — Tools vs sub-workflows (design choice)
-
-Reflect on when to use:
-
-- **AI Agent tools** (RSS, Postgres lookup, HTTP): best for **single-purpose calls** the LLM should invoke as needed.
-- **Sub-workflow / Execute Workflow–style tools**: better when a **whole branch** is reusable, long, or needs its own error handling.
-
-Briefly note in your README or workflow notes which pattern you used where, so a colleague could extend the system later.
