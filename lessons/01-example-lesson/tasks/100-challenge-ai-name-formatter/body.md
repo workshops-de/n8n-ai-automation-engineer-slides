@@ -29,6 +29,7 @@ Create an interactive chat bot that accepts names, generates creative nicknames,
 ### 2. Prepare Google Sheet
 
 Create a Google Sheet with the following columns:
+
 - **Timestamp** - When was the nickname created
 - **Original Name** - The entered name
 - **Nickname** - The generated nickname
@@ -39,7 +40,6 @@ Create a Google Sheet with the following columns:
 - Add an **AI Agent** Node
 - Choose an AI Model (e.g., GPT-4 or Claude)
 - Define System Prompt
-
 
 ### 4. Configure Google Sheets Node
 

@@ -14,7 +14,7 @@ This task assumes you already understand the **roles** (topic selection, writing
 
 ## Step 1 — Define the data contract
 
-Before touching nodes, write down **your JSON data structure** 
+Before touching nodes, write down **your JSON data structure**
 
 1. **Orchestrator → Topic Selector** — what the parent sends (for example empty trigger data or a request id).
 2. **Topic Selector → Writer** — stable fields such as `title`, `url`, `summary_hint`.

@@ -7,6 +7,7 @@ N8N's AI Agent node can think independently, use tools, and complete complex tas
 ## Why AI Agents?
 
 AI Agents can:
+
 - Break down problems into sub-steps
 - Use multiple tools independently
 - Execute multi-step processes
@@ -46,15 +47,16 @@ Create your first AI Agent that can answer weather questions using an OpenWeathe
    - Describe the tool: "Get current weather data for a specific location"
 
 4. **Create System Prompt**
+
    ```
    You are a helpful weather assistant who provides accurate weather information.
-   
+
    Your task is to:
    1. Understand the user's question about weather
    2. Extract the location from their question
    3. Use the weather tool to get current conditions
    4. Provide a friendly, conversational response with the weather details
-   
+
    Always be polite and helpful. If the user asks about a location, use the weather tool.
    ```
 

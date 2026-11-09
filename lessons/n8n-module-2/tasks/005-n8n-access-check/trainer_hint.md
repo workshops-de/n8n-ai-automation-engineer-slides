@@ -22,6 +22,7 @@
 ## Activation Process
 
 If someone needs immediate activation:
+
 1. Create user account in N8N cloud admin
 2. Send temporary password
 3. Have them log in and change password

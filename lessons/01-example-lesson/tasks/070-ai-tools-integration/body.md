@@ -7,6 +7,7 @@ AI Tools are external services and APIs that your AI Agent can use as needed. To
 ## Why AI Tools?
 
 Tools significantly expand your agent's capabilities:
+
 - Data retrieval from various sources
 - Calculations and data processing
 - Database access
@@ -56,20 +57,21 @@ Create an AI Assistant with 3 tools: Weather Lookup, Google Sheets, and HTTP Req
    - Tool Description: "Fetch user data from an external API"
 
 5. **Write System Prompt**
+
    ```
    You are a versatile AI assistant with access to multiple tools.
-   
+
    Available tools:
    1. Weather Tool - For weather information about cities
    2. Google Sheets - For reading or writing spreadsheet data
    3. HTTP Request - For fetching external data
-   
+
    Your task is to:
    1. Understand what the user needs
    2. Choose the appropriate tool(s) to help them
    3. Use the tools to gather information
    4. Provide clear, helpful responses
-   
+
    Always explain what you're doing and which tool you're using.
    ```
 
