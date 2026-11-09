@@ -5,6 +5,7 @@
 ### Chat Trigger Not Working?
 
 Common issues:
+
 - **Workflow not activated**: The workflow must be activated, not just saved
 - **Wrong URL**: Copy the Chat URL directly from the Chat Trigger Node
 - **Browser Cache**: Sometimes a hard-refresh helps (Cmd+Shift+R / Ctrl+Shift+R)

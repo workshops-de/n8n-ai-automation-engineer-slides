@@ -38,6 +38,7 @@ Verify that you have access to our N8N learning environment. We send it 3-5 days
 ## Need Help?
 
 If you encounter any issues:
+
 - Contact the workshop organizers
 - Bring it up on the first day of the workshop
 - We're here to help!

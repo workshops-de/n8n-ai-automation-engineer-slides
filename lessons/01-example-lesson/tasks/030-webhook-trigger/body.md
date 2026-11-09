@@ -7,6 +7,7 @@ A Webhook Trigger listens for incoming HTTP requests and starts workflows when e
 ## Why Webhook Trigger?
 
 Perfect for real-time integrations where external applications need to instantly notify your N8N workflows about events:
+
 - Form submissions
 - Payment confirmations
 - API updates

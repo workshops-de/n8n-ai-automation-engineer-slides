@@ -51,6 +51,7 @@ https://web.telegram.org/a/#-1001234567890
 - Attach a **Simple Memory** node to the agent
 
 **Example system prompt:**
+
 ```
 You are a helpful AI assistant in a Telegram group.
 
@@ -65,6 +66,7 @@ Message text: {{ $json.message.text }}
 ```
 
 **Input mapping:**
+
 - Set the agent’s `Text` field to:
   ```
   {{ $json.message.text }}

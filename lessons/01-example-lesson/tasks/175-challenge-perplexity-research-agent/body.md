@@ -39,18 +39,19 @@ Open the chat and try these research queries:
 ```
 What are the latest developments in AI this week?
 ```
+
 ```
 What is the current stock price trend for major tech companies?
 ```
+
 ```
 Research the newest features of n8n and summarize them.
 ```
+
 ```
 What happened at the last major climate summit?
 ```
 
 ### 4. Verify Source Attribution
 
-The Perplexity API response includes citations. 
-
-
+The Perplexity API response includes citations.

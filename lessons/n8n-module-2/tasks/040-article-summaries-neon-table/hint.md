@@ -4,14 +4,12 @@
 
 Recreate the same shape as this schema when clicking columns in Neon **Tables**:
 
-- **`id`** — integer, primary key, auto-generated identity  
-- **`source_url`** — text, not null, **unique**  
-- **`summary`** — text, not null  
-- **`created_at`** — timestamp, default **now()**, not null  
+- **`id`** — integer, primary key, auto-generated identity
+- **`source_url`** — text, not null, **unique**
+- **`summary`** — text, not null
+- **`created_at`** — timestamp, default **now()**, not null
 
 If anything looks ambiguous in the wizard, compare against the SQL in the next hint.
-
-
 
 ## Hint 2: Equivalent SQL (reference only)
 

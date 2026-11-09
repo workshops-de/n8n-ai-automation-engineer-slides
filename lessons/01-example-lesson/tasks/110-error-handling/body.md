@@ -7,6 +7,7 @@ Error Handling comprises built-in mechanisms in N8N to gracefully handle failure
 ## Why Error Handling?
 
 Error Handling is essential for:
+
 - **Preventing Silent Failures** - Problems won't go unnoticed
 - **Instant Notifications** - Quick response to errors
 - **System Reliability** - Workflows remain robust
@@ -37,7 +38,7 @@ Create an Error Logger Workflow that catches and logs all errors in your workflo
      - Add a Google Sheets Node
      - Create an "Error Log" Sheet
      - Save: Timestamp, Workflow Name, Node, Error Message
-   
+
    - Option B: Email Notification
      - Add an Email Node
      - Send a formatted error email to yourself
@@ -51,4 +52,3 @@ Create an Error Logger Workflow that catches and logs all errors in your workflo
    - Intentionally create an error (e.g., invalid API key -> there should be one in your project "INVALID TEST KEY TO PROVOCE ERROR")
    - Check if the Error Logger is triggered
    - Verify the logged information
-

@@ -15,6 +15,7 @@
 #### 1. SMTP Authentication
 
 Most problems arise here:
+
 - **Gmail**: Requires App-Password, not regular password
 - **Outlook/Office365**: Sometimes special Auth-Settings required
 - **Company Email**: Often blocked/restricted
@@ -24,6 +25,7 @@ Most problems arise here:
 #### 2. AI Agent Output Structure
 
 Depending on the chosen model, the output varies:
+
 - GPT Models: Often `output` or `text`
 - Claude: Usually `text` or `content`
 - **Important**: Participants must inspect the output!
@@ -33,6 +35,7 @@ Depending on the chosen model, the output varies:
 #### 3. Form → AI → Email Mapping
 
 Participants often confuse:
+
 - Which Node has which data
 - Correct referencing: `$('NodeName').item.json.field`
 - Case-sensitivity in Node names
@@ -46,6 +49,7 @@ Participants often confuse:
 ### Demo Tips
 
 Show live:
+
 1. How to create an n8n Form (very quick!)
 2. How to inspect the AI Agent output
 3. How to map fields correctly
@@ -95,6 +99,7 @@ After the exercise:
 ### Alternative: Email-less Testing
 
 If email setup is too problematic:
+
 - Show the generated email text only in the workflow output
 - Or write it to a Google Sheets column
 - Focus on AI personalization instead of email technology

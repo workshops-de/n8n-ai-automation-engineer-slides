@@ -10,9 +10,11 @@
 ## Find the chat ID
 
 Open in the browser:
+
 ```
 https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
 ```
+
 Search for `"chat":{"id":` — for groups the ID is negative (e.g. `-1001234567890`).
 
 ## Agent replies to every message (including its own)?

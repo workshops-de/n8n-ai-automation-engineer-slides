@@ -7,6 +7,7 @@ A Chat Trigger responds to messages and commands in chat applications and initia
 ## Why Chat Trigger?
 
 Create chatbots and interactive automations where users can trigger workflows through natural conversation or specific commands:
+
 - Customer service bots
 - Interactive assistants
 - Command-based automations
