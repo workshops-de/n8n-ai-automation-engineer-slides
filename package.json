@@ -11,16 +11,17 @@
     "exam": "node scripts/build-exam.mjs"
   },
   "dependencies": {
-    "@slidev/cli": "52.11.3",
+    "@slidev/cli": "53.1.0",
     "@slidev/theme-default": "0.25.0",
-    "@workshops.de/slidev-theme": "1.2.3",
+    "@workshops.de/slidev-theme": "2.1.0",
     "slidev-addon-tldraw": "0.5.1",
-    "slidev-addon-window-mockup": "0.3.0",
-    "vue": "3.5.26"
+    "slidev-addon-window-mockup": "0.3.1",
+    "vue": "3.5.45"
   },
   "devDependencies": {
-    "playwright-chromium": "1.57.0",
-    "prettier": "3.7.4",
-    "prettier-plugin-slidev": "1.0.5"
+    "playwright-chromium": "1.65.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-slidev": "1.0.5",
+    "typescript": "^6.0.3"
   }
 }
