@@ -14,7 +14,6 @@
 #### 1. Tool Not Being Called
 
 This is the most common error! Causes:
-
 - **System Prompt too weak**: "ALWAYS use the tool" must be explicitly included
 - **Tool Schema Error**: JSON Schema must be 100% valid
 - **Wrong Model**: Not all models are good at tool use
@@ -24,7 +23,6 @@ This is the most common error! Causes:
 #### 2. Chat Trigger Confusion
 
 Participants often don't understand:
-
 - The workflow must be **activated** (not just saved)
 - The Chat URL doesn't change, even after modifications
 - You can open the chat in a new tab for testing
@@ -34,7 +32,6 @@ Participants often don't understand:
 #### 3. Google Sheets Mapping
 
 Common errors:
-
 - Wrong references: `$json.original_name` instead of `$('AI Agent').item.json.original_name`
 - Node renamed, but references not updated
 - Assumption that data is always there (the tool might not have been called)
@@ -49,7 +46,6 @@ Common errors:
 ### Demo Tips
 
 Show live:
-
 1. **Chat Trigger Setup**: How quickly you can create a chat
 2. **Tool Definition**: Write the JSON Schema live or copy-paste
 3. **System Prompt Importance**: Show what happens when you leave out "ALWAYS use tool"
@@ -102,7 +98,6 @@ After the exercise:
 ### Alternative Approaches
 
 If tool use is too complicated:
-
 - **Simplification**: AI only returns the nickname (without tool)
 - **Regex Parsing**: Parse the AI response with regex instead of tool
 - **Structured Output**: Use JSON Output Mode (some models)
@@ -110,12 +105,10 @@ If tool use is too complicated:
 ### Model Recommendations
 
 Best for tool use:
-
 - GPT-4 (very reliable)
 - Claude Sonnet 3.5+ (excellent)
 - GPT-3.5-Turbo (okay, sometimes inconsistent)
 
 Less suitable:
-
 - Older or smaller models
 - Models without Tool/Function Calling support

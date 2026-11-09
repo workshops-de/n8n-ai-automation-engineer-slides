@@ -17,11 +17,11 @@ The outcome should feel like a **pipeline**: research → pick unused topic → 
 
 ## Roles at a glance
 
-| Agent          | Responsibility                                                                                              |
-| -------------- | ----------------------------------------------------------------------------------------------------------- |
+| Agent | Responsibility |
+| ----- | ---------------- |
 | Topic Selector | Use RSS as a **tool**, pull recent items, pick **one** topic not present in your “already written” records. |
-| Writer         | Produce the article body from the chosen topic (title, angle, link).                                        |
-| Proofreader    | Flag or fix spelling issues and enforce length rules (whole text + per paragraph).                          |
+| Writer | Produce the article body from the chosen topic (title, angle, link). |
+| Proofreader | Flag or fix spelling issues and enforce length rules (whole text + per paragraph). |
 
 You may implement proofreading as a **second AI Agent** or as **deterministic nodes** (for example word counts and split-by-paragraph checks after the writer). Pick what keeps your workflow maintainable.
 

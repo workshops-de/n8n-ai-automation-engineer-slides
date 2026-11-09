@@ -11,6 +11,7 @@ Build an AI Agent that uses two HTTP Request nodes as tools: one for querying RE
 - Crawling website content with "Optimize Response"
 - Using ✨ or `$fromAI()` to let the agent dynamically set request parameters
 
+
 ## Step-by-Step Guide
 
 ### 1. Set Up the Base Workflow
@@ -33,7 +34,6 @@ This tool lets the agent query structured JSON APIs.
 - Leave all other settings at their default
 
 The agent can now call any REST API by providing the URL. Example APIs to try:
-
 - `https://jsonplaceholder.typicode.com/users` – 10 test users with name, email, company
 - `https://workshops.de/api/courses` – real course listings from workshops.de
 
@@ -63,21 +63,17 @@ Create your own system prompt in dialog with an chat agent like claude chat etc
 Open the chat and try these queries:
 
 **REST API queries:**
-
 ```
 Fetch the list of users from https://jsonplaceholder.typicode.com/users and show me their names and companies.
 ```
-
 ```
 What courses are available at https://workshops.de/api/courses?
 ```
 
 **Website crawl queries:**
-
 ```
 What is on the homepage of https://workshops.de?
 ```
-
 ```
 Summarize the content of https://n8n.io
 ```

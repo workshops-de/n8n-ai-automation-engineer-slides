@@ -56,17 +56,16 @@ Add the following fields in the n8n Form Trigger:
 - Add an **AI Agent** Node
 - Choose an AI Model (e.g., GPT-4 or Claude)
 - **System Prompt**:
-
   ```
   You are a friendly onboarding assistant who writes personalized welcome emails.
-
+  
   Create a warm, inviting welcome email that:
   1. Greets the user personally by name
   2. Welcomes them to the platform
   3. Has a motivating, friendly tone
   4. Contains a creative, surprising message (e.g., an inspiring quote, a joke, or a fun fact)
   5. Is brief and concise (max. 150 words)
-
+  
   Output only the email body text, no subject line.
   ```
 
@@ -74,7 +73,7 @@ Add the following fields in the n8n Form Trigger:
   ```
   New user has signed up:
   Name: {{ $json.name }}
-
+  
   Create a personalized welcome email.
   ```
 

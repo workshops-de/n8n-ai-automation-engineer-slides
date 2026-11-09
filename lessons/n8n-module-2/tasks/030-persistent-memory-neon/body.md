@@ -23,10 +23,10 @@ Neon hosts serverless Postgres with a connection string you can paste straight i
 
 Neon shows:
 
-- **Host**
+- **Host** 
 - **Database name**
 - **User**
-- **Password**
+- **Password** 
 
 ### 2. Create Postgres credentials in n8n
 

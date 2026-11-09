@@ -21,12 +21,12 @@ Use Neon’s visual **Tables** experience—do **not** create this table with th
 4. Set the **table name** to `article_summaries`.
 5. Add columns via the UI:
 
-| Column       | Type        | Constraints / defaults                                            |
-| ------------ | ----------- | ----------------------------------------------------------------- |
-| `id`         | `serial`    | Set as **Primary key**, auto-increment                            |
-| `source_url` | `text`      | **Not null**. Enable **Unique** so each URL appears at most once. |
-| `summary`    | `text`      | **Not null**.                                                     |
-| `created_at` | `timestamp` | Default **`now()`**                                               |
+| Column       | Type              | Constraints / defaults |
+| ------------ | ----------------- | ----------------------- |
+| `id`         | `serial` | Set as **Primary key**, auto-increment |
+| `source_url` | `text`            | **Not null**. Enable **Unique** so each URL appears at most once. |
+| `summary`    | `text`            | **Not null**. |
+| `created_at` | `timestamp`     | Default **`now()`** |
 
 6. Save / apply the table.
 

@@ -66,7 +66,6 @@ Add the following fields in the n8n Form Trigger:
 - Add an **AI Agent** Node
 - Choose an AI Model (e.g., Claude or GPT-4)
 - **System Prompt**:
-
   ```
   You are a friendly math quiz evaluator.
 
@@ -89,7 +88,6 @@ Add the following fields in the n8n Form Trigger:
   ```
 
 - **User Prompt**:
-
   ```
   Participant: {{ $json.name }}
 
@@ -106,7 +104,6 @@ Add the following fields in the n8n Form Trigger:
 ### 6. Prepare Google Sheet
 
 Create a Google Sheet with the following columns:
-
 - Timestamp
 - Name
 - Answer Q1 (10+10)

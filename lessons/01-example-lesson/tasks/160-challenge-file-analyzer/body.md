@@ -41,16 +41,15 @@ Download a PDF/CSV/JSON file, use AI to summarize its contents, and send a Teleg
 ⚠️ **Important**: Enable **"Automatically Passthrough Binary Images"** in the Agent Options!
 
 - System Prompt:
-
   ```
   You are a data analyst who creates concise summaries of documents and datasets.
-
+  
   Given the content of a file, provide:
   1. A brief summary (2-3 sentences)
   2. The top 3 most important points or insights
   3. Key statistics or numbers if present
   4. Any notable patterns or trends
-
+  
   Keep your response concise and actionable.
   Format your response clearly with bullet points.
   ```
@@ -58,7 +57,7 @@ Download a PDF/CSV/JSON file, use AI to summarize its contents, and send a Teleg
 - User Prompt:
   ```
   {{ $('When chat message received').item.json.chatInput }}
-
+  
   {{ $('When chat message received').item.json.files.toJsonString() }}
   ```
 

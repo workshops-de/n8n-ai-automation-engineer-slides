@@ -1,6 +1,6 @@
 ## Goal
 
-Design and implement a **custom MCP (Model Context Protocol) server** that connects your **mailing list** to an **AI-driven workflow**. The server must let an agent **discover every subscriber** and **send email to one subscriber at a time** (individual sends, not a single opaque “blast” tool).
+Design and implement a **custom MCP (Model Context Protocol) server** that connects your **mailing list** to an **AI-driven workflow**. The server must let an agent **discover every subscriber** and **send email to one subscriber at a time** (individual sends, not a single opaque “blast” tool). 
 
 You then **integrate** this MCP with your **content creation system** so new or revised content can flow from production into personalized outreach.
 
@@ -17,15 +17,15 @@ Avoid hard-coding secrets in MCP tool arguments; use environment variables or yo
 
 Your MCP server should expose at least:
 
-| Concern         | Tool behavior                                               |
-| --------------- | ----------------------------------------------------------- |
-| Discovery       | A tool that returns **all current subscribers**             |
-| Individual send | A tool that sends **one message to exactly one subscriber** |
+| Concern | Tool behavior |
+| ------- | -------------- |
+| Discovery | A tool that returns **all current subscribers**  |
+| Individual send | A tool that sends **one message to exactly one subscriber**  |
 
 ## Step 3 — Setup the MCP server
 
 1. Create a new workflow with the **MCP Server Trigger** Node.
-2. Implement the tools that the MCP Server should expose
+2. Implement the tools that the MCP Server should expose 
 
 ## Step 4 — Integrate with your content creation system
 

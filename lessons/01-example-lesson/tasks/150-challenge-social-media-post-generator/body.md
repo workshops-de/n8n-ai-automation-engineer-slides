@@ -26,20 +26,17 @@ Create a fully automated content generator workflow triggered via Google Forms. 
 Create a Google Form with the following fields:
 
 **Field 1: Topic**
-
 - Type: Short answer
 - Required: Yes
 - Description: "What topic should a social media post be created about?"
 - Example: "AI in Healthcare", "Remote Work Tips"
 
 **Field 2: Platform**
-
 - Type: Multiple Choice
 - Options: Twitter, LinkedIn, Both
 - Required: Yes
 
 **Form Settings:**
-
 - Link the form to a new Google Sheet
 - Google Forms automatically creates a sheet with the responses
 - The sheet automatically gets columns: Timestamp, Topic, Platform
@@ -47,13 +44,11 @@ Create a Google Form with the following fields:
 ### 2. Extend Google Sheet
 
 Open the linked Google Sheet and add additional columns:
-
 - **Status** (for tracking: Generated, Posted, etc.)
 - **Document URL** (link to the Google Doc)
 - **Generated Date** (when it was generated)
 
 Your sheet now has:
-
 - Timestamp (automatically from Google Forms)
 - Topic (from form)
 - Platform (from form)
@@ -77,7 +72,6 @@ Your sheet now has:
 **Create System Prompt:**
 
 The System Prompt is the most important part of this challenge! It must clearly explain to the AI Agent:
-
 - What its task is
 - Which tools it should use
 - What rules apply for the different platforms
@@ -96,14 +90,12 @@ The System Prompt is the most important part of this challenge! It must clearly 
 Add the following tools to the AI Agent:
 
 **Tool 1: Google Docs (Create)**
-
 - Node: Google Docs
 - Operation: Create Document
 - Purpose: Save post as Google Doc
 - Tool Description: "Create a new Google Doc with the generated social media post. Title format: '[Platform] - [Topic] - [Date]'. Include the full post text in the document."
 
 **Tool 2: Google Sheets (Update)**
-
 - Node: Google Sheets
 - Operation: Update Row
 - Purpose: Update row with status and doc link

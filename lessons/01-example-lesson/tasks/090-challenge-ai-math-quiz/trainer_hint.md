@@ -35,7 +35,6 @@ The most frequent issue: field keys contain spaces and special characters.
 Participants may want a numeric score in Google Sheets. The AI returns it as prose.
 
 Options:
-
 - Ask the AI to include a separate line `Score: 2/3` and parse with a Code Node
 - Or keep it simple and just save the feedback text for the workshop
 
@@ -49,7 +48,6 @@ Options:
 ### Demo Tips
 
 Show live:
-
 1. Create the form in 2 minutes — emphasize how fast n8n Form is
 2. Inspect the Form Trigger output to show exact field names
 3. Enter a deliberately wrong answer and show the AI feedback adapts

@@ -11,10 +11,10 @@ Add a **topic guardrail** to your content generation pipeline so articles are on
 
 Write down the explicit list you will enforce. Choose one of these formats:
 
-| Format                                                | When to use                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------------- |
-| **Allowlist** (enumerate accepted topics)             | Small, stable topic set; easiest to audit.                    |
-| **Blocklist** (enumerate rejected topics)             | Very broad content space with a few banned areas.             |
+| Format | When to use |
+| ------ | ----------- |
+| **Allowlist** (enumerate accepted topics) | Small, stable topic set; easiest to audit. |
+| **Blocklist** (enumerate rejected topics) | Very broad content space with a few banned areas. |
 | **Semantic similarity threshold** (embed and compare) | Large flexible topic space where exact string matching fails. |
 
 Document your chosen format and where it lives (hard-coded, database, file, etc).

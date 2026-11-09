@@ -17,13 +17,14 @@ This pattern keeps each specialist agent focused on one job, while the router ac
 - Familiar with the **AI Agent** node and **Structured Output Parser**.
 - Completed task **Multi-Agent RSS Article System** or equivalent.
 
+
 ## Step 1 — Router Agent
 
 Create an **AI Agent** node that receives the raw user input and classifies it into exactly one of three content types.
 
 ## Step 2 — Add a Switch node
 
-After the Router Agent, place an n8n **Switch** node.
+After the Router Agent, place an n8n **Switch** node. 
 
 ## Step 3 — Specialist Agents
 
